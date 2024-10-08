@@ -1,0 +1,22 @@
+<h2>Warehouse <%= @warehouse.code %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th>Area</th>
+      <th>Address</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @warehouse.name %></td>
+      <td><%= @warehouse.city %></td>
+      <td><%= @warehouse.area %> m²</td>
+      <td><%= @warehouse.address %> - CEP: <%= @warehouse.cep %></td>
+      <td><%= @warehouse.description %></td>    
+    </tr>
+  </tbody>
+</table>

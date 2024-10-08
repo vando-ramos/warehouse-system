@@ -1,10 +1,10 @@
 <h2>Warehouses</h2>
 
-<% @warehouses.each do |w| %>
-  <h3><%= link_to w.name, w %></h3>
-  <div>Code: <%= w.code %></div>
-  <div>City: <%= w.city %></div>
-  <div>Area: <%= w.area %> m²</div>
+<% @warehouses.each do |warehouse| %>
+  <h3><%= link_to warehouse.name, warehouse %></h3>
+  <div><strong>Code</strong>: <%= warehouse.code %></div>
+  <div><strong>City:</strong> <%= warehouse.city %></div>
+  <div><strong>Area:</strong> <%= warehouse.area %> m²</div>
 <% end %>
 
 <% if @warehouses.empty? %>

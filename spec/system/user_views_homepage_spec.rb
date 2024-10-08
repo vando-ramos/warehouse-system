@@ -5,10 +5,10 @@ describe 'User visits homepage' do
     # arrange
 
     # act
-    visit('/')
+    visit(root_path)
 
     # assert
-    expect(page).to have_content('Warehouses&Stocks')
+    expect(page).to have_content('Warehouses & Stocks')
   end
 
   it "and sees the registered warehouses" do
@@ -17,7 +17,7 @@ describe 'User visits homepage' do
     Warehouse.create(name: 'Galeão', code: 'GIG', city: 'Rio de Janeiro', area: 18_000_000)
 
     # act
-    visit('/')
+    visit(root_path)
 
     # assert
     expect(page).not_to have_content('There are no registered warehouses!')
@@ -36,7 +36,7 @@ describe 'User visits homepage' do
     # arrange
 
     # act
-    visit('/')
+    visit(root_path)
 
     # assert
     expect(page).to have_content('There are no registered warehouses!')

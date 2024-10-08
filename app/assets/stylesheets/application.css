@@ -14,15 +14,53 @@
  *= require_self
  */
 
- table {
-  width: 100%;
-  border-collapse: collapse;
- }
+/* global settings */
+a {
+  text-decoration: none;
+}
 
- table, th, td {
+a:hover {
+  text-decoration: underline;
+}
+
+/* navbar */
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li:nth-child(n+2) {
+  margin-left: 30px;
+}
+
+/* cards */
+.warehouse-card {
   border: 1px solid black;
- }
+  border-radius: 5px;
+  width: 300px;
+}
 
- td {
+.warehouse-card h3 {
   text-align: center;
- }
+}
+
+.warehouse-card ul {
+  list-style: none;
+}
+
+/* tables */
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+table, th, td {
+border: 1px solid black;
+padding: 5px 0;
+}
+
+td {
+text-align: center;
+}
+
+

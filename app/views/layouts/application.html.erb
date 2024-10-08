@@ -10,10 +10,18 @@
   </head>
 
   <body>
-    <h1>Warehouses & Stocks</h1>
+    <header>
+      <h1>Warehouses & Stocks</h1>
+    </header>
 
-    <%= link_to 'Home', root_path %>
+    <nav>
+      <ul>
+        <li><%= link_to 'Home', root_path %></li>
+      </ul>      
+    </nav>
     
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

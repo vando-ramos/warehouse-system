@@ -10,4 +10,24 @@ describe 'User visit homepage' do
     # assert
     expect(page).to have_content('Warehouses&Stocks')
   end
+
+  it "and sees the registered warehouses" do
+    # arrange
+    Warehouse.create(name: 'Guarulhos', code: 'GRU', city: 'Guarulhos', area: 13_000_000)
+    Warehouse.create(name: 'Galeão', code: 'GIG', city: 'Rio de Janeiro', area: 18_000_000)
+
+    # act
+    visit('/')
+
+    # assert
+    expect(page).to have_content('Guarulhos')
+    expect(page).to have_content('Code: GRU')
+    expect(page).to have_content('City: Guarulhos')
+    expect(page).to have_content('Area: 13000000 m2')
+
+    expect(page).to have_content('Galeão')
+    expect(page).to have_content('Code: GIG')
+    expect(page).to have_content('City: Rio de Janeiro')
+    expect(page).to have_content('Area: 18000000 m2')
+  end
 end

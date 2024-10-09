@@ -14,7 +14,8 @@ class WarehousesController < ApplicationController
     if @warehouse.save
       redirect_to root_path, notice: 'Warehouse successfully registered!'
     else
-      render :new
+      flash.now.alert = 'Unable to register warehouse!'
+      render :new, status: :unprocessable_entity
     end
   end
 

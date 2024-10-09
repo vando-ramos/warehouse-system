@@ -42,4 +42,18 @@ describe 'User registers a warehouse' do
     expect(page).to have_content('Guarulhos')
     expect(page).to have_content('13000000 m²')
   end
+
+  it 'with incomplete data' do
+    # arrange
+
+    # act
+    visit(root_path)
+    click_on('Register Warehouse')
+    fill_in 'Area', with: ''
+    fill_in 'Description', with: ''
+    click_on('Create Warehouse')
+
+    # assert
+    expect(page).to have_content('Unable to register warehouse!')
+  end
 end

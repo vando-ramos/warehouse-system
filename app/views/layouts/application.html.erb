@@ -21,8 +21,11 @@
     </nav>
     
     <main>
-      <div class='success'><%= notice %></div>
-      <div class='error'><%= alert %></div>
+      <% if notice.present? || alert.present? %>
+        <div class="<%= notice.present? ? 'success-message' : 'error-message' %>">
+          <%= notice || alert %>
+        </div>
+      <% end %>
 
       <%= yield %>
     </main>

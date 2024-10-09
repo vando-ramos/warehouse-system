@@ -36,8 +36,9 @@ nav ul li:nth-child(n+2) {
 /* cards */
 .warehouse-card {
   border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 3px;
   width: 300px;
+  margin-top: 20px;
 }
 
 .warehouse-card h3 {

@@ -1,5 +1,7 @@
 <h2>Warehouses</h2>
 
+<%= link_to 'Register Warehouse', new_warehouse_path %>
+
 <% @warehouses.each do |warehouse| %>
   <div class='warehouse-card'>
     <h3><%= link_to warehouse.name, warehouse %></h3>

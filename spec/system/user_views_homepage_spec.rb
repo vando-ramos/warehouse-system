@@ -15,6 +15,7 @@ describe 'User visits homepage' do
     # arrange
     Warehouse.create(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 13_000_000, address: 'Rodovia Hélio Smidt, s/n - Cumbica',
                      cep: '07060-100' , description: 'Cargas internacionais')
+                     
     Warehouse.create(name: 'Galeão', code: 'GIG', city: 'Rio de Janeiro', area: 18_000_000, address: 'Av. Jornalista Roberto Marinho, s/n',
                      cep: '21941-900' , description: 'Cargas internacionais')
 

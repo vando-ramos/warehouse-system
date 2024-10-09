@@ -12,7 +12,7 @@ class WarehousesController < ApplicationController
     @warehouse = Warehouse.new(warehouse_params)
 
     if @warehouse.save
-      redirect_to root_path
+      redirect_to root_path, notice: 'Warehouse successfully registered!'
     else
       render :new
     end

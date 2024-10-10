@@ -1,5 +1,5 @@
 class WarehousesController < ApplicationController
-  before_action :set_warehouse, only: %i[show]
+  before_action :set_warehouse, only: %i[show edit update]
 
   def show
   end
@@ -17,6 +17,13 @@ class WarehousesController < ApplicationController
       flash.now.alert = 'Unable to register warehouse!'
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+  end
+
+  def update
+    
   end
 
   private

@@ -1,5 +1,5 @@
 class WarehousesController < ApplicationController
-  before_action :set_warehouse, only: %i[show edit update]
+  before_action :set_warehouse, only: %i[show edit update destroy]
 
   def show
   end
@@ -29,6 +29,11 @@ class WarehousesController < ApplicationController
       flash.now.alert = 'Unable to update warehouse!'
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @warehouse.destroy
+    redirect_to root_path, notice: 'Warehouse successfully deleted!'
   end
 
   private

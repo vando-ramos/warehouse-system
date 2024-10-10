@@ -23,6 +23,10 @@ a:hover {
   text-decoration: underline;
 }
 
+h2 {
+  text-align: center;
+}
+
 .success-message {
   color: green;
   background-color: #d4edda;
@@ -60,6 +64,7 @@ nav ul li:nth-child(n+2) {
   border: 1px solid black;
   border-radius: 3px;
   width: 300px;
+  margin: 0 auto;
   margin-top: 20px;
 }
 
@@ -115,6 +120,20 @@ text-align: center;
 input {
   padding: 5px;
   border-radius: 3px;
+}
+
+/* buttons */
+.new {
+  text-align: center;
+}
+
+.action-button {
+  display: flex;
+  margin-top: 20px;
+}
+
+.delete {
+  margin-left: 20px;
 }
 
 

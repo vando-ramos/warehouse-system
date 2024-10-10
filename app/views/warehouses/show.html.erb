@@ -21,5 +21,7 @@
   </tbody>
 </table>
 
-<div><%= link_to 'Edit', edit_warehouse_path(@warehouse) %></div>
-<div><%= button_to 'Delete', warehouse_path(@warehouse), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %></div>
+<div class='action-button'>
+  <div class='edit'><%= link_to 'Edit', edit_warehouse_path(@warehouse) %></div>
+  <div class='delete'><%= button_to 'Delete', warehouse_path(@warehouse), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %></div>
+</div>

@@ -3,30 +3,58 @@
     <div>
       <%= f.label :name %>
       <%= f.text_field :name %>
+
+      <% if @warehouse.errors[:name].any? %>
+        <div class='field-error'><%= @warehouse.errors.full_messages_for(:name).first %></div>
+      <% end %>
     </div>
     <div>
       <%= f.label :code %>
       <%= f.text_field :code %>
+
+      <% if @warehouse.errors[:code].any? %>
+        <div class='field-error'><%= @warehouse.errors.full_messages_for(:code).first %></div>
+      <% end %>
     </div>
     <div>
       <%= f.label :city %>
       <%= f.text_field :city %>
+
+      <% if @warehouse.errors[:city].any? %>
+        <div class='field-error'><%= @warehouse.errors.full_messages_for(:city).first %></div>
+      <% end %>
     </div>
     <div>
       <%= f.label :area %>
       <%= f.number_field :area %>
+
+      <% if @warehouse.errors[:area].any? %>
+        <div class='field-error'><%= @warehouse.errors.full_messages_for(:area).first %></div>
+      <% end %>
     </div>
     <div>
       <%= f.label :address %>
       <%= f.text_field :address %>
+
+      <% if @warehouse.errors[:address].any? %>
+        <div class='field-error'><%= @warehouse.errors.full_messages_for(:address).first %></div>
+      <% end %>
     </div>
     <div>
       <%= f.label :cep, 'CEP' %>
       <%= f.text_field :cep %>
+
+      <% if @warehouse.errors[:cep].any? %>
+        <div class='field-error'><%= @warehouse.errors.full_messages_for(:cep).first %></div>
+      <% end %>
     </div>
     <div>
       <%= f.label :description %>
       <%= f.text_area :description %>
+
+      <% if @warehouse.errors[:description].any? %>
+        <div class='field-error'><%= @warehouse.errors.full_messages_for(:description).first %></div>
+      <% end %>
     </div>
     <div>
       <%= f.submit %>

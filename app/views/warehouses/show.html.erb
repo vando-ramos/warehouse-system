@@ -1,13 +1,13 @@
-<h2>Warehouse <%= @warehouse.code %></h2>
+<h2><%= t('activerecord.models.warehouse') %> <%= @warehouse.code %></h2>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>City</th>
-      <th>Area</th>
-      <th>Address</th>
-      <th>Description</th>
+      <th><%= t('activerecord.attributes.warehouse.name') %></th>
+      <th><%= t('activerecord.attributes.warehouse.city') %></th>
+      <th><%= t('activerecord.attributes.warehouse.area') %></th>
+      <th><%= t('activerecord.attributes.warehouse.address') %></th>
+      <th><%= t('activerecord.attributes.warehouse.description') %></th>
     </tr>
   </thead>
   <tbody>

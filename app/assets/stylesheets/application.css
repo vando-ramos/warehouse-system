@@ -41,6 +41,10 @@ a:hover {
   text-align: center;
 }
 
+.field-error {
+  color: red;
+}
+
 /* navbar */
 nav ul {
   display: flex;

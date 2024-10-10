@@ -1,15 +1,15 @@
-<h2>Warehouses</h2>
+<h2><%= t('views.warehouses') %></h2>
 
-<%= link_to 'Register Warehouse', new_warehouse_path %>
+<%= link_to t('views.register_warehouse'), new_warehouse_path %>
 
 <% @warehouses.each do |warehouse| %>
   <div class='warehouse-card'>
     <h3><%= link_to warehouse.name, warehouse %></h3>
 
     <ul>
-      <li><strong>Code</strong>: <%= warehouse.code %></li>
-      <li><strong>City:</strong> <%= warehouse.city %></li>
-      <li><strong>Area:</strong> <%= warehouse.area %> m²</li>
+      <li><strong><%= t('activerecord.attributes.warehouse.code') %>:</strong> <%= warehouse.code %></li>
+      <li><strong><%= t('activerecord.attributes.warehouse.city') %>:</strong> <%= warehouse.city %></li>
+      <li><strong><%= t('activerecord.attributes.warehouse.area') %>:</strong> <%= warehouse.area %> m²</li>
     </ul>
   </div>
 <% end %>

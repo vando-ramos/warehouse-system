@@ -55,5 +55,12 @@ describe 'User registers a warehouse' do
 
     # assert
     expect(page).to have_content('Unable to register warehouse!')
+    expect(page).to have_content("Name can't be blank")
+    expect(page).to have_content("Code can't be blank")
+    expect(page).to have_content("City can't be blank")
+    expect(page).to have_content("Area can't be blank")
+    expect(page).to have_content("Address can't be blank")
+    expect(page).to have_content("Cep can't be blank")
+    expect(page).to have_content("Description can't be blank")
   end
 end

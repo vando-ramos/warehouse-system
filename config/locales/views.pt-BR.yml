@@ -1,0 +1,5 @@
+pt-BR:
+  views:
+    home: 'Início'
+    warehouses: 'Galpões'
+    register_warehouse: 'Cadastrar Galpão'

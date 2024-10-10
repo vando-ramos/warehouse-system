@@ -23,7 +23,12 @@ class WarehousesController < ApplicationController
   end
 
   def update
-    
+    if @warehouse.update(warehouse_params)
+      redirect_to @warehouse, notice: 'Warehouse successfully updated!'
+    else
+      flash.now.alert = 'Unable to update warehouse!'
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private

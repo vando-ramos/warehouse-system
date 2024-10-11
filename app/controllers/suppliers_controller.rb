@@ -1,5 +1,5 @@
 class SuppliersController < ApplicationController
-  before_action :set_supplier, only: %i[show]
+  before_action :set_supplier, only: %i[show edit update]
 
   def index
     @suppliers = Supplier.all
@@ -20,6 +20,18 @@ class SuppliersController < ApplicationController
     else
       flash.now.alert = 'Unable to register supplier!'
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @supplier.update(supplier_params)
+      redirect_to @supplier, notice: 'Supplier successfully updated!'
+    else
+      flash.now.alert = 'Unable to update supplier!'
+      render :edit, status: :unprocessable_entity
     end
   end
 

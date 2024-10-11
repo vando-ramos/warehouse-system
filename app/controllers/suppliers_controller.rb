@@ -18,7 +18,7 @@ class SuppliersController < ApplicationController
     if @supplier.save
       redirect_to suppliers_path, notice: 'Supplier successfully registered!'
     else
-      flash.now.alert = 'Unable to register warehouse!'
+      flash.now.alert = 'Unable to register supplier!'
       render :new, status: :unprocessable_entity
     end
   end

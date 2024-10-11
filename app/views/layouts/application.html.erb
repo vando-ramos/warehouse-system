@@ -13,18 +13,14 @@
   <body>
     <header>
       <h1>Warehouses & Stocks</h1>
-    </header>
-
-    <hr>
+    </header>    
 
     <nav>
       <ul>
         <li><%= link_to t('views.home'), root_path %></li>
         <li><%= link_to 'Suppliers', suppliers_path %></li>
-      </ul>      
-    </nav>
-
-    <hr>
+      </ul>
+    </nav>    
     
     <main>
       <% if notice.present? || alert.present? %>

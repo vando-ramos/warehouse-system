@@ -44,4 +44,26 @@ describe 'User registers a supplier' do
     expect(page).to have_content('SuperFood')
     expect(page).to have_content('São Paulo - SP')
   end
+
+  it 'with incomplete data' do
+    # arrange
+
+    # act
+    visit(root_path)
+    click_on('Suppliers')
+    click_on('Register Supplier')
+    fill_in 'Brand name', with: ''
+    fill_in 'Registration number', with: ''
+    click_on('Create Supplier')
+
+    # assert
+    expect(page).to have_content('Unable to register supplier!')
+    expect(page).to have_content("Corporate name can't be blank")
+    expect(page).to have_content("Brand name can't be blank")
+    expect(page).to have_content("Registration number can't be blank")
+    expect(page).to have_content("Address can't be blank")
+    expect(page).to have_content("City can't be blank")
+    expect(page).to have_content("State can't be blank")
+    expect(page).to have_content("Email can't be blank")
+  end
 end

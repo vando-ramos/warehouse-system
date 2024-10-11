@@ -3,6 +3,7 @@ pt-BR:
     home: 'Início'
     warehouses: 'Galpões'
     suppliers: 'Fornecedores'
+    product_models: 'Modelos de Produtos'
     register_warehouse: 'Cadastrar Galpão'
     register_supplier: 'Cadastrar Fornecedor'
     location: 'Localização'

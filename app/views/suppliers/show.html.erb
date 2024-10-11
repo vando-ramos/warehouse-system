@@ -21,4 +21,5 @@
 
 <div class='action-button'>
   <div class='edit'><%= link_to 'Edit', edit_supplier_path(@supplier) %></div>
+  <div class='delete'><%= button_to 'Delete', supplier_path(@supplier), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %></div>
 </div>

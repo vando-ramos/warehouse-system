@@ -1,5 +1,5 @@
 class SuppliersController < ApplicationController
-  before_action :set_supplier, only: %i[show edit update]
+  before_action :set_supplier, only: %i[show edit update destroy]
 
   def index
     @suppliers = Supplier.all
@@ -33,6 +33,11 @@ class SuppliersController < ApplicationController
       flash.now.alert = 'Unable to update supplier!'
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @supplier.destroy
+    redirect_to suppliers_path, notice: 'Supplier successfully deleted!'
   end
 
   private

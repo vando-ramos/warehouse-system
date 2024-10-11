@@ -4,4 +4,5 @@ pt-BR:
     warehouses: 'Galpões'
     suppliers: 'Fornecedores'
     register_warehouse: 'Cadastrar Galpão'
+    register_supplier: 'Cadastrar Fornecedor'
     location: 'Localização'

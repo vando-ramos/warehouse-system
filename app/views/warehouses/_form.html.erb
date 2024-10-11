@@ -3,37 +3,37 @@
     <div>
       <%= f.label :name %>
       <%= f.text_field :name %>
-      <%= error_message_for(:name) %>
+      <%= error_message_for(@warehouse, :name) %>
     </div>
     <div>
       <%= f.label :code %>
       <%= f.text_field :code %>
-      <%= error_message_for(:code) %>
+      <%= error_message_for(@warehouse, :code) %>
     </div>
     <div>
       <%= f.label :city %>
       <%= f.text_field :city %>
-      <%= error_message_for(:city) %>
+      <%= error_message_for(@warehouse, :city) %>
     </div>
     <div>
       <%= f.label :area %>
       <%= f.number_field :area %>
-     <%= error_message_for(:area) %>
+     <%= error_message_for(@warehouse, :area) %>
     </div>
     <div>
       <%= f.label :address %>
       <%= f.text_field :address %>
-      <%= error_message_for(:address) %>
+      <%= error_message_for(@warehouse, :address) %>
     </div>
     <div>
       <%= f.label :cep, 'CEP' %>
       <%= f.text_field :cep %>
-      <%= error_message_for(:cep) %>
+      <%= error_message_for(@warehouse, :cep) %>
     </div>
     <div>
       <%= f.label :description %>
       <%= f.text_area :description %>
-      <%= error_message_for(:description) %>
+      <%= error_message_for(@warehouse, :description) %>
     </div>
     <div>
       <%= f.submit %>

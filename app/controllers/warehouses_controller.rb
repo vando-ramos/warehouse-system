@@ -38,11 +38,11 @@ class WarehousesController < ApplicationController
 
   private
 
-  def warehouse_params
-    params.require(:warehouse).permit(:name, :code, :city, :area, :address, :cep, :description)
-  end
-
   def set_warehouse
     @warehouse = Warehouse.find(params[:id])
+  end
+
+  def warehouse_params
+    params.require(:warehouse).permit(:name, :code, :city, :area, :address, :cep, :description)
   end
 end

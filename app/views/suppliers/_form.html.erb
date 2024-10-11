@@ -1,0 +1,42 @@
+<div class='form-container'>
+  <%= form_with model: @supplier do |f| %>
+    <div>
+      <%= f.label :corporate_name %>
+      <%= f.text_field :corporate_name %>
+      <%= error_message_for(@supplier, :corporate_name) %>
+    </div>
+    <div>
+      <%= f.label :brand_name %>
+      <%= f.text_field :brand_name %>
+      <%= error_message_for(@supplier, :brand_name) %>
+    </div>
+    <div>
+      <%= f.label :registration_number %>
+      <%= f.text_field :registration_number %>
+      <%= error_message_for(@supplier, :registration_number) %>
+    </div>    
+    <div>
+      <%= f.label :address %>
+      <%= f.text_field :address %>
+      <%= error_message_for(@supplier, :address) %>
+    </div>
+    <div>
+      <%= f.label :city %>
+      <%= f.number_field :city %>
+      <%= error_message_for(@supplier, :city) %>
+    </div>
+    <div>
+      <%= f.label :state %>
+      <%= f.text_field :state %>
+      <%= error_message_for(@supplier, :state) %>
+    </div>
+    <div>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+      <%= error_message_for(@supplier, :email) %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

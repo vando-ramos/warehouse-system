@@ -1,5 +1,7 @@
 <h2>Suppliers</h2>
 
+<div class='new'><%= link_to t('views.register_supplier'), new_supplier_path %></div>
+
 <% if @suppliers.any? %>
   <table>
     <thead>

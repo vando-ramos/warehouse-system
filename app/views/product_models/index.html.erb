@@ -1,1 +1,14 @@
+<h2><%= t('views.product_models') %></h2>
 
+<% @product_models.each do |product_model| %>
+  <div class='card'>
+    <h3><%= product_model.name %></h3>
+
+    <div class='list'>
+      <ul>
+        <li><strong><%= t('activerecord.attributes.product_model.sku') %>:</strong> <%= product_model.sku %></li>
+        <li><strong><%= t('activerecord.attributes.supplier.brand_name') %>:</strong> <%= product_model.supplier.brand_name %></li>
+      </ul>
+    </div>
+  </div>
+<% end %>

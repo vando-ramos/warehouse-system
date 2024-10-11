@@ -13,4 +13,27 @@ describe 'User views the product models page' do
     # assert
     expect(current_path).to eq(product_models_path)
   end
+
+  it 'and sees the registered product models' do
+    # arrange
+    supplier = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
+                                address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
+
+    product_model = ProductModel.create!(name: 'Placa Mãe Intel ATX', weight: 500, width: 30, height: 5, depth: 20, sku: 'INT-ATX-12345', supplier: supplier)
+
+    product_model = ProductModel.create!(name: 'Memória RAM 16GB DDR4', weight: 200, width: 14, height: 2, depth: 1, sku: 'RAM-DDR4-67890', supplier: supplier)
+
+    # act
+    visit(root_path)
+    click_on('Product Models')
+
+    # assert
+    expect(page).to have_content('Product Models')
+    expect(page).to have_content('Placa Mãe Intel ATX')
+    expect(page).to have_content('INT-ATX-12345')
+    expect(page).to have_content('TechInd')
+    expect(page).to have_content('Memória RAM 16GB DDR4')
+    expect(page).to have_content('RAM-DDR4-67890')
+    expect(page).to have_content('TechInd')
+  end
 end

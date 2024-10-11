@@ -3,7 +3,7 @@
 <div class='new'><%= link_to t('views.register_warehouse'), new_warehouse_path %></div>
 
 <% @warehouses.each do |warehouse| %>
-  <div class='warehouse-card'>
+  <div class='card'>
     <h3><%= link_to warehouse.name, warehouse %></h3>
 
     <div class='list'>

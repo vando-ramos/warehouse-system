@@ -33,4 +33,15 @@ describe 'User views the suppliers page' do
     expect(page).to have_content('TechInd')
     expect(page).to have_content('Curitiba - PR')
   end
+
+  it "and there are no registered suppliers" do
+    # Arrange
+
+    # Act
+    visit root_path
+    click_on ('Suppliers')
+
+    # Assert
+    expect(page).to have_content("There are no registered suppliers!")
+  end
 end

@@ -1,24 +1,26 @@
 <h2>Suppliers</h2>
 
-<div class='new'><%= link_to t('views.register_supplier'), new_supplier_path %></div>
-
-<% if @suppliers.any? %>
-  <table>
-    <thead>
-      <tr>
-        <th><%= t('activerecord.attributes.supplier.brand_name') %></th>
-        <th><%= t('views.location') %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @suppliers.each do |supplier| %>
-      <tr>
-        <td><%= link_to supplier.brand_name , supplier %></td>
-        <td><%= supplier.city %> - <%= supplier.state %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <p>There are no registered suppliers!</p>
-<% end %>
+<section class='suppliers'>
+  <div class='new'><%= link_to t('views.register_supplier'), new_supplier_path %></div>
+  
+  <% if @suppliers.any? %>
+    <table>
+      <thead>
+        <tr>
+          <th><%= t('activerecord.attributes.supplier.brand_name') %></th>
+          <th><%= t('views.location') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @suppliers.each do |supplier| %>
+        <tr>
+          <td><%= link_to supplier.brand_name , supplier %></td>
+          <td><%= supplier.city %> - <%= supplier.state %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>There are no registered suppliers!</p>
+  <% end %>
+</section>

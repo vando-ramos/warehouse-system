@@ -13,6 +13,14 @@ class SuppliersController < ApplicationController
   end
 
   def create
+    @supplier = Supplier.new(supplier_params)
+
+    if @supplier.save
+      redirect_to suppliers_path, notice: 'Supplier successfully registered!'
+    else
+      flash.now.alert = 'Unable to register warehouse!'
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private

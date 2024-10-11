@@ -6,11 +6,13 @@
   <div class='warehouse-card'>
     <h3><%= link_to warehouse.name, warehouse %></h3>
 
-    <ul>
-      <li><strong><%= t('activerecord.attributes.warehouse.code') %>:</strong> <%= warehouse.code %></li>
-      <li><strong><%= t('activerecord.attributes.warehouse.city') %>:</strong> <%= warehouse.city %></li>
-      <li><strong><%= t('activerecord.attributes.warehouse.area') %>:</strong> <%= warehouse.area %> m²</li>
-    </ul>
+    <div class='list'>
+      <ul>
+        <li><strong><%= t('activerecord.attributes.warehouse.code') %>:</strong> <%= warehouse.code %></li>
+        <li><strong><%= t('activerecord.attributes.warehouse.city') %>:</strong> <%= warehouse.city %></li>
+        <li><strong><%= t('activerecord.attributes.warehouse.area') %>:</strong> <%= warehouse.area %> m²</li>
+      </ul>
+    </div>
   </div>
 <% end %>
 

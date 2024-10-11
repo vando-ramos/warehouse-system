@@ -1,0 +1,20 @@
+<h2><%= t('activerecord.models.supplier') %> <%= @supplier.brand_name %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t('activerecord.attributes.supplier.corporate_name') %></th>
+      <th><%= t('activerecord.attributes.supplier.registration_number') %></th>
+      <th><%= t('views.location') %></th>
+      <th><%= t('activerecord.attributes.supplier.email') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @supplier.corporate_name %></td>
+      <td><%= @supplier.registration_number %></td>
+      <td><%= @supplier.address %> - <%= @supplier.city %> - <%= @supplier.state %></td>
+      <td><%= @supplier.email %></td>
+    </tr>
+  </tbody>
+</table>

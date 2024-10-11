@@ -2,4 +2,6 @@ pt-BR:
   views:
     home: 'Início'
     warehouses: 'Galpões'
+    suppliers: 'Fornecedores'
     register_warehouse: 'Cadastrar Galpão'
+    location: 'Localização'

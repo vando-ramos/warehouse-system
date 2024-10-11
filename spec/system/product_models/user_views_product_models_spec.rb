@@ -36,4 +36,15 @@ describe 'User views the product models page' do
     expect(page).to have_content('RAM-DDR4-67890')
     expect(page).to have_content('TechInd')
   end
+
+  it "and there are no registered product models" do
+    # Arrange
+
+    # Act
+    visit root_path
+    click_on ('Product Models')
+
+    # Assert
+    expect(page).to have_content("There are no registered product models!")
+  end
 end

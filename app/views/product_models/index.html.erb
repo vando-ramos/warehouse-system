@@ -12,3 +12,7 @@
     </div>
   </div>
 <% end %>
+
+<% if @product_models.empty? %>
+  <p>There are no registered product models!</p>
+<% end %>

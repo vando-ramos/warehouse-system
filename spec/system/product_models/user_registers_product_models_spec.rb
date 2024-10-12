@@ -3,8 +3,11 @@ require 'rails_helper'
 describe 'User registers a product model' do
   it 'successfully' do
     # arrange
-    supplier = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
-                                address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
+    supplier1 = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
+                                 address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
+
+    supplier2 = Supplier.create!(corporate_name: 'Comercial Alimentos S.A.', brand_name: 'SuperFood', registration_number: '12.345.678/0001-90',
+                                 address: 'Rua das Palmeiras, 123', city: 'São Paulo', state: 'SP', email: 'contato@superfood.com.br')
 
     # act
     visit(root_path)
@@ -22,6 +25,7 @@ describe 'User registers a product model' do
     click_on('Create Product model')
 
     # assert
+    expect(current_path).to eq('/product_models/1')
     expect(page).to have_content('Product model successfully registered!')
     expect(page).to have_content('Placa Mãe Intel ATX')
     expect(page).to have_content('500g')

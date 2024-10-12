@@ -12,6 +12,7 @@ describe 'User edits a warehouse' do
     click_on('Edit')
 
     # assert
+    expect(current_path).to eq("/warehouses/#{warehouse.id}/edit")
     expect(page).to have_content('Edit Aeroporto SP')
     expect(page).to have_field('Name', with: 'Aeroporto SP')
     expect(page).to have_field('Code', with: 'GRU')

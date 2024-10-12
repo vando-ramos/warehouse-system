@@ -12,6 +12,8 @@ describe 'User registers a supplier' do
     click_on('Register Supplier')
 
     # assert
+    expect(current_path).to eq(new_supplier_path)
+    expect(page).to have_content('Register Supplier')
     expect(page).to have_field('Corporate name')
     expect(page).to have_field('Brand name')
     expect(page).to have_field('Registration number')

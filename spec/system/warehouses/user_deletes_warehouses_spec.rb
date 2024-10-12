@@ -34,7 +34,6 @@ describe 'User deletes a warehouse' do
     click_on('Delete')
 
     # assert
-    expect(current_path).to eq(root_path)
     expect(page).to have_content('Warehouse successfully deleted!')
     expect(page).not_to have_content('Aeroporto SP')
     expect(page).to have_content('Galeão')

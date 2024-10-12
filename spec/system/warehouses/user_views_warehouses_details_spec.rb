@@ -11,6 +11,7 @@ describe 'User views the details of a warehouse' do
     click_on('Aeroporto SP')
 
     # assert
+    expect(current_path).to eq(warehouse_path(warehouse.id))
     expect(page).to have_content('Warehouse GRU')
     expect(page).to have_content('Name')
     expect(page).to have_content('Aeroporto SP')

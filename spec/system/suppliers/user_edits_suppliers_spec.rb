@@ -15,7 +15,7 @@ describe 'User edits a supplier' do
     click_on('Edit')
 
     # assert
-    expect(current_path).to eq(edit_supplier_path(supplier.id))
+    expect(current_path).to eq("/suppliers/#{supplier.id}/edit")
     expect(page).to have_content('Edit TechInd')
     expect(page).to have_field('Corporate name', with: 'Tecnologia Industrial LTDA')
     expect(page).to have_field('Brand name', with: 'TechInd')

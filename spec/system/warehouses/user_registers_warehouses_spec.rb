@@ -9,6 +9,8 @@ describe 'User registers a warehouse' do
     click_on('Register Warehouse')
 
     # assert
+    expect(current_path).to eq(new_warehouse_path)
+    expect(page).to have_content('Register Warehouse')
     expect(page).to have_field('Name')
     expect(page).to have_field('Code')
     expect(page).to have_field('City')

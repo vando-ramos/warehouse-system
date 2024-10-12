@@ -1,0 +1,42 @@
+<div class='form-container'>
+  <%= form_with model: @product_model do |f| %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= error_message_for(@product_model, :name) %>
+    </div>
+    <div>
+      <%= f.label :weight %>
+      <%= f.text_field :weight %>
+      <%= error_message_for(@product_model, :weight) %>
+    </div>
+    <div>
+      <%= f.label :width %>
+      <%= f.text_field :width %>
+      <%= error_message_for(@product_model, :width) %>
+    </div>    
+    <div>
+      <%= f.label :height %>
+      <%= f.text_field :height %>
+      <%= error_message_for(@product_model, :height) %>
+    </div>
+    <div>
+      <%= f.label :depth %>
+      <%= f.text_field :depth %>
+      <%= error_message_for(@product_model, :depth) %>
+    </div>
+    <div>
+      <%= f.label :sku %>
+      <%= f.text_field :sku %>
+      <%= error_message_for(@product_model, :sku) %>
+    </div>
+    <div>
+      <%= f.label :supplier_id %>
+      <%= f.collection_select :supplier_id, @suppliers, :id, :brand_name %>
+      <%= error_message_for(@product_model, :supplier_id) %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

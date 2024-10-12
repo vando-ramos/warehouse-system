@@ -27,4 +27,4 @@ pt-BR:
         width: 'Largura'
         height: 'Altura'
         depth: 'Profundidade'
-        sku: 'Código'
+        sku: 'SKU'

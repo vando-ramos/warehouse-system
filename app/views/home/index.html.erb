@@ -1,6 +1,6 @@
 <h2><%= t('views.warehouses') %></h2>
 
-<div class='new'><%= link_to t('views.register_warehouse'), new_warehouse_path %></div>
+<div class='new-button'><%= link_to t('views.register_warehouse'), new_warehouse_path %></div>
 
 <% @warehouses.each do |warehouse| %>
   <div class='card'>

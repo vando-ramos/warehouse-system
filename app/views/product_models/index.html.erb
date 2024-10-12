@@ -1,8 +1,10 @@
 <h2><%= t('views.product_models') %></h2>
 
+<div class='new-button'><%= link_to t('views.register_product_model'), new_product_model_path %></div>
+
 <% @product_models.each do |product_model| %>
   <div class='card'>
-    <h3><%= product_model.name %></h3>
+    <h3><%= link_to product_model.name, product_model %></h3>
 
     <div class='list'>
       <ul>

@@ -6,4 +6,6 @@ pt-BR:
     product_models: 'Modelos de Produtos'
     register_warehouse: 'Cadastrar Galpão'
     register_supplier: 'Cadastrar Fornecedor'
+    register_product_model: 'Cadastrar Modelo de Produto'
     location: 'Localização'
+    dimension: 'Dimensão'

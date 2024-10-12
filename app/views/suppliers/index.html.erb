@@ -1,7 +1,7 @@
 <h2><%= t('views.suppliers') %></h2>
 
 <section class='suppliers'>
-  <div class='new'><%= link_to t('views.register_supplier'), new_supplier_path %></div>
+  <div class='new-button'><%= link_to t('views.register_supplier'), new_supplier_path %></div>
   
   <% if @suppliers.any? %>
     <table>

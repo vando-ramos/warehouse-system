@@ -1,0 +1,20 @@
+<h2><%= @product_model.name %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t('activerecord.attributes.product_model.weight') %></th>
+      <th><%= t('views.dimension') %></th>
+      <th><%= t('activerecord.attributes.product_model.sku') %></th>
+      <th><%= t('activerecord.model.supplier') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @product_model.weight %>g</td>
+      <td><%= @product_model.width %>cm x <%= @product_model.height %>cm x <%= @product_model.depth %>cm</td>
+      <td><%= @product_model.sku %></td>
+      <td><%= @product_model.supplier.brand_name %></td>
+    </tr>
+  </tbody>
+</table>

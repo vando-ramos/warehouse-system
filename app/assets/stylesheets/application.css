@@ -15,6 +15,10 @@
  */
 
 /* global settings */
+h1 {
+  text-align: center;
+}
+
 a {
   text-decoration: none;
 }
@@ -105,11 +109,6 @@ text-align: center;
 }
 
 /* forms */
-.new {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
 .form-container {
   display: flex;
   justify-content: center;
@@ -137,8 +136,9 @@ input {
 }
 
 /* buttons */
-.new {
+.new-button {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .action-button {

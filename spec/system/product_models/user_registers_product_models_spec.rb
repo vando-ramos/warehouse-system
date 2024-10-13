@@ -33,4 +33,33 @@ describe 'User registers a product model' do
     expect(page).to have_content('INT-ATX-12345')
     expect(page).to have_content('TechInd')
   end
+
+  it 'and all fields must be filled in' do
+    # arrange
+    supplier = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
+                                address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
+
+
+    # act
+    visit(root_path)
+    click_on('Product Models')
+    click_on('Register Product Model')
+    fill_in 'Name', with: ''
+    fill_in 'Weight', with: ''
+    fill_in 'Width', with: ''
+    fill_in 'Height', with: ''
+    fill_in 'Depth', with: ''
+    fill_in 'Sku', with: ''
+    select 'TechInd', from: 'Supplier'
+    click_on('Create Product model')
+
+    # assert
+    expect(page).to have_content('Unable to register product model!')
+    expect(page).to have_content("Name can't be blank")
+    expect(page).to have_content("Weight can't be blank")
+    expect(page).to have_content("Width can't be blank")
+    expect(page).to have_content("Height can't be blank")
+    expect(page).to have_content("Depth can't be blank")
+    expect(page).to have_content("Sku can't be blank")
+  end
 end

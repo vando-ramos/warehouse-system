@@ -19,6 +19,7 @@ class ProductModelsController < ApplicationController
     if @product_model.save
       redirect_to @product_model, notice: 'Product model successfully registered!'
     else
+      @suppliers = Supplier.all
       flash.now.alert = 'Unable to register product model!'
       render :new, status: :unprocessable_entity
     end

@@ -16,6 +16,8 @@ gem "importmap-rails"
 
 gem "turbo-rails"
 
+gem 'devise'
+
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
   gem 'rspec-rails'

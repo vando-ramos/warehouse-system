@@ -2,20 +2,27 @@
 
 <div class='new-button'><%= link_to t('views.register_warehouse'), new_warehouse_path %></div>
 
-<% @warehouses.each do |warehouse| %>
-  <div class='card'>
-    <h3><%= link_to warehouse.name, warehouse %></h3>
-
-    <div class='list'>
-      <ul>
-        <li><strong><%= t('activerecord.attributes.warehouse.code') %>:</strong> <%= warehouse.code %></li>
-        <li><strong><%= t('activerecord.attributes.warehouse.city') %>:</strong> <%= warehouse.city %></li>
-        <li><strong><%= t('activerecord.attributes.warehouse.area') %>:</strong> <%= warehouse.area %> m²</li>
-      </ul>
-    </div>
-  </div>
-<% end %>
-
-<% if @warehouses.empty? %>
+<% if @warehouses.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th><%= t('activerecord.attributes.warehouse.name') %></th>
+        <th><%= t('activerecord.attributes.warehouse.code') %></th>
+        <th><%= t('activerecord.attributes.warehouse.city') %></th>
+        <th><%= t('activerecord.attributes.warehouse.area') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @warehouses.each do |warehouse| %>
+      <tr>
+        <td><%= link_to warehouse.name, warehouse %></td>
+        <td><%= warehouse.code %></td>
+        <td><%= warehouse.city %></td>
+        <td><%= warehouse.area %> m²</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
   <p class='no-data'>There are no registered warehouses!</p>
 <% end %>

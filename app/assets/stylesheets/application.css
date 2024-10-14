@@ -76,30 +76,6 @@ nav ul li:nth-child(n+2) {
   margin-left: 30px;
 }
 
-/* cards */
-.card {
-  border: 1px solid black;
-  border-radius: 3px;
-  width: 300px;
-  margin: 0 auto;
-  margin-bottom: 10px;
-}
-
-.card h3 {
-  text-align: center;
-}
-
-.card .list {
-  display: flex;
-  justify-content: center;
-}
-
-.card ul {
-  list-style: none;
-  margin-top: 0;
-  padding: 0;
-}
-
 /* tables */
 table {
 width: 100%;

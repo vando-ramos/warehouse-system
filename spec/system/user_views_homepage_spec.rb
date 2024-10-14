@@ -25,14 +25,14 @@ describe 'User visits homepage' do
     # assert
     expect(page).not_to have_content('There are no registered warehouses!')
     expect(page).to have_content('Aeroporto SP')
-    expect(page).to have_content('Code: GRU')
-    expect(page).to have_content('City: Guarulhos')
-    expect(page).to have_content('Area: 13000000 m²')
+    expect(page).to have_content('GRU')
+    expect(page).to have_content('Guarulhos')
+    expect(page).to have_content('13000000 m²')
 
     expect(page).to have_content('Galeão')
-    expect(page).to have_content('Code: GIG')
-    expect(page).to have_content('City: Rio de Janeiro')
-    expect(page).to have_content('Area: 18000000 m²')
+    expect(page).to have_content('GIG')
+    expect(page).to have_content('Rio de Janeiro')
+    expect(page).to have_content('18000000 m²')
   end
 
   it "and there are no registered warehouses" do

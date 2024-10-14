@@ -36,7 +36,7 @@ pt-BR:
       updated_not_active: "Sua senha foi alterada com sucesso."
     registrations:
       destroyed: "Adeus! Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve."
-      signed_up: "Bem-vindo! Seu cadastro foi realizado com sucesso."
+      signed_up: "Boas-vindas! Seu cadastro foi realizado com sucesso."
       signed_up_but_inactive: "Seu cadastro foi realizado com sucesso. No entanto, não foi possível autenticá-lo porque sua conta ainda não está ativada."
       signed_up_but_locked: "Seu cadastro foi realizado com sucesso. No entanto, não foi possível autenticá-lo porque sua conta está bloqueada."
       signed_up_but_unconfirmed: "Uma mensagem com um link de confirmação foi enviada para seu endereço de e-mail. Por favor, siga o link para ativar sua conta."
@@ -44,6 +44,7 @@ pt-BR:
       updated: "Sua conta foi atualizada com sucesso."
       updated_but_not_signed_in: "Sua conta foi atualizada com sucesso, mas como sua senha foi alterada, você precisa fazer login novamente."
     sessions:
+      sign_up: "Registrar-se"
       sign_in: "Entrar."
       signed_in: "Login realizado com sucesso."
       sign_out: "Sair"

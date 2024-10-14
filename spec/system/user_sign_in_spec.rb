@@ -25,7 +25,7 @@ describe 'User authenticates' do
     expect(page).to have_content('Signed in successfully')
   end
 
-  it 'and log out' do
+  it 'and sign out' do
     # arrange
     User.create!(email: 'user@email.com', password: '123456')
 

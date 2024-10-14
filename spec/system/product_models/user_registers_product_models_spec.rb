@@ -3,6 +3,8 @@ require 'rails_helper'
 describe 'User registers a product model' do
   it 'successfully' do
     # arrange
+    user = User.create!(name: 'User', email: 'user@email.com', password: '123456')
+
     supplier1 = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
                                  address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
 
@@ -10,6 +12,7 @@ describe 'User registers a product model' do
                                  address: 'Rua das Palmeiras, 123', city: 'São Paulo', state: 'SP', email: 'contato@superfood.com.br')
 
     # act
+    login_as(user)
     visit(root_path)
     within('nav') do
       click_on('Product Models')
@@ -36,11 +39,14 @@ describe 'User registers a product model' do
 
   it 'and all fields must be filled in' do
     # arrange
+    user = User.create!(name: 'User', email: 'user@email.com', password: '123456')
+
     supplier = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
                                 address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
 
 
     # act
+    login_as(user)
     visit(root_path)
     click_on('Product Models')
     click_on('Register Product Model')

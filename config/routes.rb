@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :warehouses
   resources :suppliers
   resources :product_models
+  resources :orders
 end

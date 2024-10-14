@@ -1,0 +1,20 @@
+<h2>Order</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Responsible User</th>
+      <th>Destination Warehouse</th>
+      <th>Supplier</th>
+      <th>Expected delivery date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @order.user.name %> | <%= @order.user.email %></td>
+      <td><%= @order.warehouse.name %></td>
+      <td><%= @order.supplier.corporate_name %></td>
+      <td><%= I18n.localize(@order.expected_delivery_date) %></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,22 @@
+<div class='form-container'>
+  <%= form_with model: @order do |f| %>
+    <div>
+      <%= f.label :warehouse_id %>
+      <%= f.collection_select :warehouse_id, @warehouses, :id, :name %>
+      <%= error_message_for(@order, :warehouse_id) %>
+    </div>
+    <div>
+      <%= f.label :supplier_id %>
+      <%= f.collection_select :supplier_id, @suppliers, :id, :corporate_name %>
+      <%= error_message_for(@order, :supplier_id) %>
+    </div>
+    <div>
+      <%= f.label :expected_delivery_date %>
+      <%= f.date_field :expected_delivery_date %>
+      <%= error_message_for(@order, :expected_delivery_date) %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

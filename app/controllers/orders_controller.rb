@@ -22,8 +22,8 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to @order, notice: 'Order successfully registered'
     else
-      # @warehouses = Warehouse.all
-      # @suppliers = Supplier.all
+      @warehouses = Warehouse.all
+      @suppliers = Supplier.all
       flash.now.alert = 'Unable to register order'
       render :new, status: :unprocessable_entity
     end

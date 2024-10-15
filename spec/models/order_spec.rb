@@ -35,7 +35,99 @@ RSpec.describe Order, type: :model do
       # act
 
       # assert
-      expect(order.valid?).to eq false
+      expect(order.valid?).to be false
+    end
+
+    it "expected delivery date can't be in the past" do
+      # arrange
+      user = User.create!(name: 'User', email: 'user@email.com', password: '123456')
+
+      warehouse = Warehouse.create!(name: 'CDD Guarulhos', code: 'GRU', city: 'Guarulhos', area: 13_000_000,
+                                    address: 'Rodovia Hélio Smidt, s/n - Cumbica', cep: '07060-100', description: 'Cargas internacionais')
+
+      supplier = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
+                                  address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
+
+      order = Order.new(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: 1.day.ago)
+
+      # act
+      order.valid?
+
+      # assert
+      expect(order.errors.include? :expected_delivery_date).to be true
+      expect(order.errors[:expected_delivery_date]).to include('must be in the future')
+    end
+
+    it "expected delivery date can't be equal today" do
+      # arrange
+      user = User.create!(name: 'User', email: 'user@email.com', password: '123456')
+
+      warehouse = Warehouse.create!(name: 'CDD Guarulhos', code: 'GRU', city: 'Guarulhos', area: 13_000_000,
+                                    address: 'Rodovia Hélio Smidt, s/n - Cumbica', cep: '07060-100', description: 'Cargas internacionais')
+
+      supplier = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
+                                  address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
+
+      order = Order.new(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: Date.today)
+
+      # act
+      order.valid?
+
+      # assert
+      expect(order.errors.include? :expected_delivery_date).to be true
+      expect(order.errors[:expected_delivery_date]).to include('must be in the future')
+    end
+
+    it "expected delivery date must be equal to or greater than tomorrow" do
+      # arrange
+      user = User.create!(name: 'User', email: 'user@email.com', password: '123456')
+
+      warehouse = Warehouse.create!(name: 'CDD Guarulhos', code: 'GRU', city: 'Guarulhos', area: 13_000_000,
+                                    address: 'Rodovia Hélio Smidt, s/n - Cumbica', cep: '07060-100', description: 'Cargas internacionais')
+
+      supplier = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
+                                  address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
+
+      order = Order.new(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: 1.day.from_now)
+
+      # act
+      order.valid?
+
+      # assert
+      expect(order.errors.include? :expected_delivery_date).to be false
+    end
+
+    it "warehouse can't be blank " do
+      # arrange
+      user = User.create!(name: 'User', email: 'user@email.com', password: '123456')
+
+      supplier = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
+                                  address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
+
+      order = Order.new(user: user, warehouse: nil, supplier: supplier, expected_delivery_date: '2024-10-16')
+
+      # act
+      order.valid?
+
+      # assert
+      expect(order.errors.include? :warehouse_id).to be true
+    end
+
+    it "supplier can't be blank " do
+      # arrange
+      user = User.create!(name: 'User', email: 'user@email.com', password: '123456')
+
+      warehouse = Warehouse.create!(name: 'CDD Guarulhos', code: 'GRU', city: 'Guarulhos', area: 13_000_000,
+                                    address: 'Rodovia Hélio Smidt, s/n - Cumbica', cep: '07060-100', description: 'Cargas internacionais')
+
+      order = Order.new(user: user, warehouse: warehouse, supplier: nil, expected_delivery_date: '2024-10-16')
+
+      # act
+      order.valid?
+
+      # assert
+      # expect(order.valid?).to be false
+      expect(order.errors.include? :supplier_id).to be true
     end
   end
 

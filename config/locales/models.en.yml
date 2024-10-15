@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    attributes:
+      order:
+        warehouse_id: 'Destination Warehouse'
+        expected_delivery_date: 'Expected Delivery Date'

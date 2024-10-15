@@ -1,18 +1,18 @@
-<h2>Order</h2>
+<h2><%= t('models.order') %></h2>
 
 <table>
   <thead>
     <tr>
       <th>Responsible User</th>
-      <th>Destination Warehouse</th>
-      <th>Supplier</th>
-      <th>Expected delivery date</th>
+      <th><%= t('views.warehouse_id') %></th>
+      <th><%= t('models.supplier') %></th>
+      <th><%= t('attributes.order.expected_delivery_date') %></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><%= @order.user.name %> | <%= @order.user.email %></td>
-      <td><%= @order.warehouse.name %></td>
+      <td><%= @order.user.name %> - <%= @order.user.email %></td>
+      <td><%= @order.warehouse.warehouse_info %></td>
       <td><%= @order.supplier.corporate_name %></td>
       <td><%= I18n.localize(@order.expected_delivery_date) %></td>
     </tr>

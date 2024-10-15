@@ -4,6 +4,8 @@ pt-BR:
       warehouse: 'Galpão'
       supplier: 'Fornecedor'
       product_model: 'Modelo de Produto'
+      user: 'Usuário'
+      order: 'Pedido'
     attributes:
       warehouse:
         name: 'Nome'
@@ -28,3 +30,11 @@ pt-BR:
         height: 'Altura'
         depth: 'Profundidade'
         sku: 'SKU'
+      user:
+        name: 'Nome'
+        password: 'Senha'
+        password_confirmation: 'Confirmar Senha'
+      order:
+        warehouse_id: 'Galpão de Destino'
+        supplier_id: 'Fornecedor'
+        expected_delivery_date: 'Data Prevista de Entrega'

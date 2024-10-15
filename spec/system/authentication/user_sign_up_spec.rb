@@ -22,8 +22,7 @@ describe 'User sign up' do
     within('nav') do
       expect(page).not_to have_link('Sign in')
       expect(page).to have_button('Sign out')
-      expect(page).to have_content('User')
-      expect(page).to have_content('user@email.com')
+      expect(page).to have_content('User - user@email.com')
     end
     expect(page).to have_content('Welcome! You have signed up successfully')
   end

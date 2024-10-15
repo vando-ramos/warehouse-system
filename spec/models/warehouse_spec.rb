@@ -95,4 +95,18 @@ RSpec.describe Warehouse, type: :model do
       expect(warehouse2.valid?).to eq false
     end
   end
+
+  describe '#warehouse_info' do
+    it 'displays name and code' do
+      # arrange
+      warehouse = Warehouse.new(name: 'CDD Guarulhos', code: 'GRU', city: 'Guarulhos', area: 13_000_000,
+                                address: 'Rodovia Hélio Smidt, s/n - Cumbica', cep: '07060-100', description: 'Cargas internacionais')
+
+      # act
+      result  = warehouse.warehouse_info
+
+      # assert
+      expect(result).to eq('CDD Guarulhos - GRU')
+    end
+  end
 end

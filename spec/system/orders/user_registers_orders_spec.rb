@@ -38,15 +38,15 @@ describe 'User registers a order' do
       click_on('Orders')
     end
     click_on('Register Order')
-    select warehouse.name, from: 'Warehouse'
+    select 'Aeroporto SP - GRU', from: 'Destination Warehouse'
     select supplier.corporate_name, from: 'Supplier'
-    fill_in 'Expected delivery date', with: '2024-10-20'
+    fill_in 'Expected Delivery Date', with: '2024-10-20'
     click_on('Create Order')
 
     # assert
     expect(page).to have_content('Order successfully registered')
-    expect(page).to have_content('User | user@email.com')
-    expect(page).to have_content('Aeroporto SP')
+    expect(page).to have_content('User - user@email.com')
+    expect(page).to have_content('Aeroporto SP - GRU')
     expect(page).to have_content('Tecnologia Industrial LTDA')
     expect(page).to have_content('2024-10-20')
     expect(page).not_to have_content('Galeão')

@@ -2,7 +2,7 @@
   <%= form_with model: @order do |f| %>
     <div>
       <%= f.label :warehouse_id %>
-      <%= f.collection_select :warehouse_id, @warehouses, :id, :name %>
+      <%= f.collection_select :warehouse_id, @warehouses, :id, :warehouse_info %>
       <%= error_message_for(@order, :warehouse_id) %>
     </div>
     <div>

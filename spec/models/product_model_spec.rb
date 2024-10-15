@@ -82,9 +82,6 @@ RSpec.describe ProductModel, type: :model do
 
     it "supplier can't be blank" do
       # arrange
-      supplier = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
-                                  address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
-
       product_model = ProductModel.new(name: 'Placa Mãe Intel ATX', weight: 500, width: 30, height: 5, depth: 20, sku: 'INT-ATX-12345', supplier: nil)
 
       # act

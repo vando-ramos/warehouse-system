@@ -31,6 +31,8 @@ describe 'User registers a order' do
     Supplier.create!(corporate_name: 'Comercial Alimentos S.A.', brand_name: 'SuperFood', registration_number: '12.345.678/0001-90',
                      address: 'Rua das Palmeiras, 123', city: 'São Paulo', state: 'SP', email: 'contato@superfood.com.br')
 
+    allow(SecureRandom).to receive(:alphanumeric).with(10).and_return('ABCDE12345')
+
     # act
     login_as(user)
     visit(root_path)
@@ -45,6 +47,7 @@ describe 'User registers a order' do
 
     # assert
     expect(page).to have_content('Order successfully registered')
+    expect(page).to have_content('Order ABCDE12345')
     expect(page).to have_content('User - user@email.com')
     expect(page).to have_content('Aeroporto SP - GRU')
     expect(page).to have_content('Tecnologia Industrial LTDA')

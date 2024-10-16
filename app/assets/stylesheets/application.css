@@ -83,6 +83,11 @@ nav ul li:nth-child(n+2) {
   margin-right: 40px;
 }
 
+/*search*/
+.count {
+  text-align: center;
+}
+
 /* tables */
 table {
 width: 100%;

@@ -1,4 +1,4 @@
-<h2><%= t('views.warehouses') %></h2>
+<h2><%= Warehouse.model_name.human(count: 2) %></h2>
 
 <div class='new-button'><%= link_to t('views.register_warehouse'), new_warehouse_path %></div>
 

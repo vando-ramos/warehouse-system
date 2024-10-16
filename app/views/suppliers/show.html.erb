@@ -1,4 +1,4 @@
-<h2><%= t('activerecord.models.supplier') %> <%= @supplier.brand_name %></h2>
+<h2><%= Supplier.model_name.human(count: 1) %> <%= @supplier.brand_name %></h2>
 
 <table>
   <thead>

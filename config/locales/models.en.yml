@@ -1,6 +1,22 @@
 en:
   activerecord:
-    attributes:
+    models:
+      warehouse:
+        one: 'Warehouse'
+        other: 'Warehouses'
+      supplier:
+        one: 'Supplier'
+        other: 'Suppliers'
+      product_model:
+        one: 'Product Model'
+        other: 'Product Models'
+      user:
+        one: 'User'
+        other: 'Users'
       order:
+        one: 'Order'
+        other: 'Orders'
+    attributes:      
+      order:        
         warehouse_id: 'Destination Warehouse'
         expected_delivery_date: 'Expected Delivery Date'

@@ -1,11 +1,21 @@
 pt-BR:
   activerecord:
     models:
-      warehouse: 'Galpão'
-      supplier: 'Fornecedor'
-      product_model: 'Modelo de Produto'
-      user: 'Usuário'
-      order: 'Pedido'
+      warehouse:
+        one: 'Galpão'
+        other: 'Galpões'
+      supplier:
+        one: 'Fornecedor'
+        other: 'Fornecedores'
+      product_model:
+        one: 'Modelo de Produto'
+        other: 'Modelos de Produtos'
+      user:
+        one: 'Usuário'
+        other: 'Usuários'
+      order:
+        one: 'Pedido'
+        other: 'Pedidos'
     attributes:
       warehouse:
         name: 'Nome'

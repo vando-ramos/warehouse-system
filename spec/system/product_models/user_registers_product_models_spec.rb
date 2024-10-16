@@ -25,7 +25,7 @@ describe 'User registers a product model' do
     fill_in 'Depth', with: '20'
     fill_in 'Sku', with: 'INT-ATX-12345'
     select 'TechInd', from: 'Supplier'
-    click_on('Create Product model')
+    click_on('Create Product Model')
 
     # assert
     expect(current_path).to eq('/product_models/1')
@@ -57,7 +57,7 @@ describe 'User registers a product model' do
     fill_in 'Depth', with: ''
     fill_in 'Sku', with: ''
     select 'TechInd', from: 'Supplier'
-    click_on('Create Product model')
+    click_on('Create Product Model')
 
     # assert
     expect(page).to have_content('Unable to register product model!')

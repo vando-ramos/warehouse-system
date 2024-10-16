@@ -1,8 +1,8 @@
 <h2>Search results for <%= @code %></h2>
 
-<p class='count'>1 order found</p>
+<p class='count'><%= t('views.found', count: @orders.count) %></p>
 
-<% if @order.present? %>
+<% if @orders.any? %>
   <table>
     <thead>
       <tr>
@@ -14,13 +14,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><%= @order.code %></td>
-        <td><%= @order.user.name %> - <%= @order.user.email %></td>
-        <td><%= @order.warehouse.warehouse_info %></td>
-        <td><%= @order.supplier.corporate_name %></td>
-        <td><%= I18n.localize(@order.expected_delivery_date) %></td>
-      </tr>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.code %></td>
+          <td><%= order.user.name %> - <%= order.user.email %></td>
+          <td><%= order.warehouse.warehouse_info %></td>
+          <td><%= order.supplier.corporate_name %></td>
+          <td><%= I18n.localize(order.expected_delivery_date) %></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 <% else %>

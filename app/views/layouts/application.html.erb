@@ -18,9 +18,9 @@
     <nav>
       <ul>
         <li><%= link_to t('views.home'), root_path %></li>
-        <li><%= link_to t('views.suppliers'), suppliers_path %></li>
-        <li><%= link_to t('views.product_models'), product_models_path %></li>
-        <li><%= link_to t('views.orders'), orders_path %></li>
+        <li><%= link_to Supplier.model_name.human(count: 2), suppliers_path %></li>
+        <li><%= link_to ProductModel.model_name.human(count: 2), product_models_path %></li>
+        <li><%= link_to Order.model_name.human(count: 2), orders_path %></li>
 
         <% if user_signed_in? %>
           <li>

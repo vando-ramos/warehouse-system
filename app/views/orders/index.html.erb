@@ -1,4 +1,4 @@
-<h2><%= t('views.orders') %></h2>
+<h2><%= ProductModel.model_name.human(count: 2) %></h2>
 
 <div class='new-button'><%= link_to t('views.register_order'), new_order_path %></div>
 

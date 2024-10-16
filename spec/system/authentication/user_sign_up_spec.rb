@@ -10,13 +10,11 @@ describe 'User sign up' do
       click_on('Sign in')
     end
     click_on('Sign up')
-    within('form') do
-      fill_in 'Name', with: 'User'
-      fill_in 'Email', with: 'user@email.com'
-      fill_in 'Password', with: '123456'
-      fill_in 'Password confirmation', with: '123456'
-      click_on('Sign up')
-    end
+    fill_in 'Name', with: 'User'
+    fill_in 'Email', with: 'user@email.com'
+    fill_in 'Password', with: '123456'
+    fill_in 'Password confirmation', with: '123456'
+    click_on('Sign up')
 
     # assert
     within('nav') do

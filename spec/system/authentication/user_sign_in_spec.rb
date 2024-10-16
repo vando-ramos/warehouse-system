@@ -10,9 +10,9 @@ describe 'User authenticates' do
     within('nav') do
       click_on('Sign in')
     end
+    fill_in 'Email', with: 'user@email.com'
+    fill_in 'Password', with: '123456'
     within('form') do
-      fill_in 'Email', with: 'user@email.com'
-      fill_in 'Password', with: '123456'
       click_on('Sign in')
     end
 
@@ -34,9 +34,9 @@ describe 'User authenticates' do
     within('nav') do
       click_on('Sign in')
     end
+    fill_in 'Email', with: 'user@email.com'
+    fill_in 'Password', with: '123456'
     within('form') do
-      fill_in 'Email', with: 'user@email.com'
-      fill_in 'Password', with: '123456'
       click_on('Sign in')
     end
     within('nav') do

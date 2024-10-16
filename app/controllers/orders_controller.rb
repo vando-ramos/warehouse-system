@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
 
   def index
-
+    @orders = Order.all
   end
 
   def show
@@ -27,6 +27,11 @@ class OrdersController < ApplicationController
       flash.now.alert = 'Unable to register order'
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def search
+    @code = params['query']
+    @order = Order.find_by(code: @code)
   end
 
   private

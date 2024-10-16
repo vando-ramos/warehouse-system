@@ -1,3 +1,7 @@
 <h2><%= t('views.orders') %></h2>
 
 <div class='new-button'><%= link_to t('views.register_order'), new_order_path %></div>
+
+<% if @orders.empty? %>
+  <p class='no-data'>There are no registered orders!</p>
+<% end %>

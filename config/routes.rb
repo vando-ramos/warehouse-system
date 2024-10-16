@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   resources :warehouses
   resources :suppliers
   resources :product_models
-  resources :orders
+
+  resources :orders do
+    get 'search', on: :collection
+  end
 end

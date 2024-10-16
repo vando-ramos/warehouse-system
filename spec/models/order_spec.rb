@@ -12,7 +12,7 @@ RSpec.describe Order, type: :model do
       supplier = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
                                   address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
 
-      order = Order.new(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: '2024-10-16')
+      order = Order.new(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: 1.day.from_now)
 
       # act
 
@@ -104,7 +104,7 @@ RSpec.describe Order, type: :model do
       supplier = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
                                   address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
 
-      order = Order.new(user: user, warehouse: nil, supplier: supplier, expected_delivery_date: '2024-10-16')
+      order = Order.new(user: user, warehouse: nil, supplier: supplier, expected_delivery_date: 1.day.from_now)
 
       # act
       order.valid?
@@ -120,7 +120,7 @@ RSpec.describe Order, type: :model do
       warehouse = Warehouse.create!(name: 'CDD Guarulhos', code: 'GRU', city: 'Guarulhos', area: 13_000_000,
                                     address: 'Rodovia Hélio Smidt, s/n - Cumbica', cep: '07060-100', description: 'Cargas internacionais')
 
-      order = Order.new(user: user, warehouse: warehouse, supplier: nil, expected_delivery_date: '2024-10-16')
+      order = Order.new(user: user, warehouse: warehouse, supplier: nil, expected_delivery_date: 1.day.from_now)
 
       # act
       order.valid?
@@ -142,7 +142,7 @@ RSpec.describe Order, type: :model do
       supplier = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
                                   address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
 
-      order = Order.new(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: '2024-10-16')
+      order = Order.new(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: 1.day.from_now)
 
       # act
       order.save!
@@ -163,8 +163,8 @@ RSpec.describe Order, type: :model do
       supplier = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
                                   address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
 
-      order1 = Order.create!(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: '2024-10-16')
-      order2 = Order.new(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: '2024-10-19')
+      order1 = Order.create!(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: 1.day.from_now)
+      order2 = Order.new(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: 1.day.from_now)
 
       # act
       order2.save!

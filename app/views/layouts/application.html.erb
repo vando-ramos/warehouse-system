@@ -22,14 +22,24 @@
         <li><%= link_to t('views.product_models'), product_models_path %></li>
         <li><%= link_to t('views.orders'), orders_path %></li>
 
-        <div class='user'>
-          <% if user_signed_in? %>
+        <% if user_signed_in? %>
+          <li>
+            <%= form_with url: search_orders_path, method: :get do |f| %>
+              <%= f.label :query, 'Search Order' %>
+              <%= f.text_field :query, placeholder: 'Search Order' %>
+              <%= f.submit 'Search' %>
+            <% end %>
+          </li>
+
+          <div class='user'>
             <li><%= current_user.user_info %></li>
             <li><%= button_to t('devise.sessions.sign_out'), destroy_user_session_path, method: :delete %></li>
-          <% else %>
+          </div>
+        <% else %>
+          <div class='user'>
             <li><%= link_to t('devise.sessions.sign_in'), new_user_session_path %></li>
-          <% end %>
-        </div>       
+          </div>
+        <% end %>                 
       </ul>
     </nav>    
     

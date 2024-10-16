@@ -1,0 +1,28 @@
+<h2>Search results for <%= @code %></h2>
+
+<p class='count'>1 order found</p>
+
+<% if @order.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Responsible User</th>
+        <th><%= t('views.warehouse_id') %></th>
+        <th><%= t('models.supplier') %></th>
+        <th><%= t('attributes.order.expected_delivery_date') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @order.code %></td>
+        <td><%= @order.user.name %> - <%= @order.user.email %></td>
+        <td><%= @order.warehouse.warehouse_info %></td>
+        <td><%= @order.supplier.corporate_name %></td>
+        <td><%= I18n.localize(@order.expected_delivery_date) %></td>
+      </tr>
+    </tbody>
+  </table>
+<% else %>
+  <p>No order found</p>
+<% end %>

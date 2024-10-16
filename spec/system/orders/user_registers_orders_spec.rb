@@ -9,7 +9,6 @@ describe 'User registers a order' do
     within('nav') do
       click_on('Orders')
     end
-    click_on('Register Order')
 
     # Assert
     expect(current_path).to eq(new_user_session_path)

@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[show]
-  before_action :authenticate_user!, only: %i[new create]
+  before_action :authenticate_user!, only: %i[index show new create]
 
   def index
-    @orders = Order.all
+    @orders = current_user.orders
   end
 
   def show

@@ -51,7 +51,7 @@ class OrdersController < ApplicationController
   private
 
   def orders_params
-    params.require(:order).permit(:warehouse_id, :supplier_id, :expected_delivery_date)
+    params.require(:order).permit(:warehouse_id, :supplier_id, :expected_delivery_date, :status)
   end
 
   def set_order_and_check_user

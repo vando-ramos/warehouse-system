@@ -12,4 +12,8 @@ pt-BR:
     found:
       one: "1 pedido encontrado"
       other: "%{count} pedidos encontrados"
+  status:
+    pending: 'Pendente'
+    delivered: 'Entregue'
+    canceled: 'Cancelado'
     

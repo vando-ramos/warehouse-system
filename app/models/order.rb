@@ -8,6 +8,8 @@ class Order < ApplicationRecord
 
   before_validation :generate_code
 
+  enum status: { pending: 0, delivered: 1, canceled: 2 }
+
   private
 
   def generate_code

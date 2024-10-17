@@ -155,3 +155,8 @@ input {
 .devise-shared {
   text-align: center;
 }
+
+/* title */
+.highlight {
+  color: rgba(0, 0, 0, 0.700);
+}

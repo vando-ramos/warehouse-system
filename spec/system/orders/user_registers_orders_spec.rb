@@ -51,6 +51,7 @@ describe 'User registers a order' do
     expect(page).to have_content('Aeroporto SP - GRU')
     expect(page).to have_content('Tecnologia Industrial LTDA')
     expect(page).to have_content('2024-10-20')
+    expect(page).to have_content('Pending')
     expect(page).not_to have_content('Galeão')
     expect(page).not_to have_content('Comercial Alimentos S.A.')
   end

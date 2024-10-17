@@ -11,6 +11,7 @@
         <th><%= t('views.warehouse_id') %></th>
         <th><%= t('models.supplier') %></th>
         <th><%= t('attributes.order.expected_delivery_date') %></th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>
@@ -21,6 +22,7 @@
           <td><%= order.warehouse.warehouse_info %></td>
           <td><%= order.supplier.corporate_name %></td>
           <td><%= I18n.localize(order.expected_delivery_date) %></td>
+          <td><%= t("status.#{order.status}") %></td>
         </tr>
       <% end %>
     </tbody>

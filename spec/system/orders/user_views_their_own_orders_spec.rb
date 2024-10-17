@@ -26,9 +26,9 @@ describe 'User views only their own orders' do
     supplier = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
                                 address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
 
-    order1 = Order.create!(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: 1.day.from_now)
-    order2 = Order.create!(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: 2.day.from_now)
-    order3 = Order.create!(user: admin, warehouse: warehouse, supplier: supplier, expected_delivery_date: 3.day.from_now)
+    order1 = Order.create!(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: 1.day.from_now, status: 'pending')
+    order2 = Order.create!(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: 2.day.from_now, status: 'delivered')
+    order3 = Order.create!(user: admin, warehouse: warehouse, supplier: supplier, expected_delivery_date: 3.day.from_now, status: 'canceled')
 
     # Act
     login_as(user)
@@ -39,10 +39,13 @@ describe 'User views only their own orders' do
 
     # Assert
     expect(page).to have_content(order1.code)
+    expect(page).to have_content('Pending')
     expect(page).to have_content(order2.code)
+    expect(page).to have_content('Delivered')
     expect(page).to have_content('User - user@email.com')
 
     expect(page).not_to have_content(order3.code)
+    expect(page).not_to have_content('Canceled')
     expect(page).not_to have_content('Admin - admin@email.com')
   end
 

@@ -23,4 +23,10 @@
 
 <div class='action-button'>
   <div class='edit'><%= link_to 'Edit', edit_order_path(@order) %></div>
+
+  <% if @order.pending? %>
+    <div class='delivered'><%= button_to 'Delivered', delivered_order_path(@order) %></div>
+    <div class='canceled'><%= button_to 'Canceled', canceled_order_path(@order) %></div>
+  <% end %>
 </div>
+

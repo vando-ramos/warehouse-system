@@ -141,6 +141,14 @@ input {
   margin-top: 20px;
 }
 
+.delivered {
+  margin-left: 20px;
+}
+
+.canceled {
+  margin-left: 20px;
+}
+
 .delete {
   margin-left: 20px;
 }

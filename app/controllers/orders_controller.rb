@@ -1,15 +1,12 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: %i[show]
-  before_action :authenticate_user!, only: %i[index show new create]
+  before_action :set_order_and_check_user, only: %i[show edit update]
+  before_action :authenticate_user!
 
   def index
     @orders = current_user.orders
   end
 
   def show
-    if @order.user != current_user
-      redirect_to orders_path, alert: 'You do not have access to this order'
-    end
   end
 
   def new
@@ -32,6 +29,20 @@ class OrdersController < ApplicationController
     end
   end
 
+  def edit
+    @warehouses = Warehouse.all
+    @suppliers = Supplier.all
+  end
+
+  def update
+    if @order.update(orders_params)
+      redirect_to @order, notice: 'Order successfully updated'
+    else
+      flash.now.alert = 'Unable to update order'
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def search
     @code = params['query']
     @orders = Order.where("code LIKE ?", "%#{@code}%")
@@ -43,7 +54,11 @@ class OrdersController < ApplicationController
     params.require(:order).permit(:warehouse_id, :supplier_id, :expected_delivery_date)
   end
 
-  def set_order
+  def set_order_and_check_user
     @order = Order.find(params[:id])
+
+    if @order.user != current_user
+      return redirect_to orders_path, alert: 'You do not have access to this order'
+    end
   end
 end

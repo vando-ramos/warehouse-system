@@ -7,6 +7,9 @@ class OrdersController < ApplicationController
   end
 
   def show
+    if @order.user != current_user
+      redirect_to orders_path, alert: 'You do not have access to this order'
+    end
   end
 
   def new

@@ -3,6 +3,9 @@ class Order < ApplicationRecord
   belongs_to :supplier
   belongs_to :user
 
+  has_many :order_items
+  has_many :product_models, through: :order_items
+
   validates :warehouse_id, :supplier_id, :code, :expected_delivery_date, presence: true
   validate :expected_delivery_date_future_validation
 

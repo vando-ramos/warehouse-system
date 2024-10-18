@@ -105,4 +105,40 @@ describe 'User views only their own orders' do
     expect(page).not_to have_content('Tecnologia Industrial LTDA')
     expect(page).not_to have_content(1.day.from_now.to_date)
   end
+
+  it 'and sees order items' do
+    # Arrange
+    supplier = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
+                                address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
+
+    user = User.create!(name: 'User', email: 'user@email.com', password: '123456')
+
+    product_a = ProductModel.create!(name: 'Product A', weight: 50, width: 15, height: 5, depth: 10, sku: 'PRO-A-123', supplier: supplier)
+    product_b = ProductModel.create!(name: 'Product B', weight: 100, width: 30, height: 15, depth: 50, sku: 'PRO-B-456', supplier: supplier)
+    product_c = ProductModel.create!(name: 'Product C', weight: 75, width: 20, height: 10, depth: 20, sku: 'PRO-C-789', supplier: supplier)
+
+    warehouse = Warehouse.create!(name: 'Galeão', code: 'GIG', city: 'Rio de Janeiro', area: 18_000_000, address: 'Av. Jornalista Roberto Marinho, s/n',
+                                  cep: '21941-900' , description: 'Cargas internacionais')
+
+    order = Order.create!(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: 1.day.from_now.to_date)
+
+    OrderItem.create!(product_model: product_a, order: order, quantity: 20)
+    OrderItem.create!(product_model: product_b, order: order, quantity: 30)
+
+    # Act
+    login_as(user)
+    visit(root_path)
+    within('nav') do
+      click_on('Orders')
+    end
+    click_on(order.code)
+
+    # Assert
+
+    expect(page).to have_content('Order Items')
+    expect(page).to have_content('Product A')
+    expect(page).to have_content('20')
+    expect(page).to have_content('Product B')
+    expect(page).to have_content('30')
+  end
 end

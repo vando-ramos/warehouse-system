@@ -16,6 +16,7 @@ en:
       order:
         one: 'Order'
         other: 'Orders'
+      order_item: 'Order Items'
     attributes:      
       order:        
         warehouse_id: 'Destination Warehouse'

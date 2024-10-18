@@ -16,6 +16,7 @@ pt-BR:
       order:
         one: 'Pedido'
         other: 'Pedidos'
+      order_item: 'Itens do Pedido'
     attributes:
       warehouse:
         name: 'Nome'
@@ -48,3 +49,5 @@ pt-BR:
         warehouse_id: 'Galpão de Destino'
         supplier_id: 'Fornecedor'
         expected_delivery_date: 'Data Prevista de Entrega'
+      order_item:
+        quantity: 'Quantidade'

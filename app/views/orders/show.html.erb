@@ -30,3 +30,23 @@
   <% end %>
 </div>
 
+<h2><%= OrderItem.model_name.human %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= ProductModel.model_name.human %></th>
+      <th><%= Order.model_name.human %></th>
+      <th><%= t('attributes.order_item.quantity') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.order_items.each do |item| %>
+      <tr>
+        <td><%= item.product_model.name %></td>
+        <td><%= item.order.code %></td>
+        <td><%= item.quantity %></td>
+      </tr>
+    <% end %> 
+  </tbody>
+</table>

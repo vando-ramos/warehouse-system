@@ -21,3 +21,5 @@ en:
       order:        
         warehouse_id: 'Destination Warehouse'
         expected_delivery_date: 'Expected Delivery Date'
+      order_item:
+        product_model_id: 'Product Model'

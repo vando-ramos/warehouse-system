@@ -115,7 +115,6 @@ describe 'User views only their own orders' do
 
     product_a = ProductModel.create!(name: 'Product A', weight: 50, width: 15, height: 5, depth: 10, sku: 'PRO-A-123', supplier: supplier)
     product_b = ProductModel.create!(name: 'Product B', weight: 100, width: 30, height: 15, depth: 50, sku: 'PRO-B-456', supplier: supplier)
-    product_c = ProductModel.create!(name: 'Product C', weight: 75, width: 20, height: 10, depth: 20, sku: 'PRO-C-789', supplier: supplier)
 
     warehouse = Warehouse.create!(name: 'Galeão', code: 'GIG', city: 'Rio de Janeiro', area: 18_000_000, address: 'Av. Jornalista Roberto Marinho, s/n',
                                   cep: '21941-900' , description: 'Cargas internacionais')
@@ -134,7 +133,6 @@ describe 'User views only their own orders' do
     click_on(order.code)
 
     # Assert
-
     expect(page).to have_content('Order Items')
     expect(page).to have_content('Product A')
     expect(page).to have_content('20')

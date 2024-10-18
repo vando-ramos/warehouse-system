@@ -1,6 +1,7 @@
 en:  
   views:   
-    warehouse_id: 'Destination Warehouse'    
+    warehouse_id: 'Destination Warehouse'
+    add_item: 'Add Item'
     found:
       one: "1 order found"
       other: "%{count} orders found"

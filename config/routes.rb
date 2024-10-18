@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     get 'search', on: :collection
     post 'delivered', on: :member
     post 'canceled', on: :member
+
+    resources :order_items, only: %i[new create]
   end
 end

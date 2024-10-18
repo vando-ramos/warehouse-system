@@ -51,3 +51,4 @@ pt-BR:
         expected_delivery_date: 'Data Prevista de Entrega'
       order_item:
         quantity: 'Quantidade'
+        product_model_id: 'Modelo de Produto'

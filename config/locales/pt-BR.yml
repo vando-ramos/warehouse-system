@@ -8,7 +8,8 @@ pt-BR:
     location: 'Localização'
     dimension: 'Dimensão'
     search: 'Pesquisar'
-    search_order: 'Pesquisar Pedido'    
+    search_order: 'Pesquisar Pedido'
+    add_item: 'Adicionar Item'
     found:
       one: "1 pedido encontrado"
       other: "%{count} pedidos encontrados"

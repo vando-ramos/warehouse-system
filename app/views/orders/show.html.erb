@@ -50,3 +50,7 @@
     <% end %> 
   </tbody>
 </table>
+
+<div class='action-button'>
+  <div class='add-item'><%= link_to 'Add Item', new_order_order_item_path(order_id: @order.id) %></div>
+</div>

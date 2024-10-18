@@ -9,7 +9,7 @@ class Order < ApplicationRecord
   validates :warehouse_id, :supplier_id, :code, :expected_delivery_date, presence: true
   validate :expected_delivery_date_future_validation
 
-  before_validation :generate_code
+  before_validation :generate_code, on: :create
 
   enum status: { pending: 0, delivered: 1, canceled: 2 }
 

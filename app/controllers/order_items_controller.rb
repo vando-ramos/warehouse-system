@@ -3,7 +3,7 @@ class OrderItemsController < ApplicationController
 
   def new
     @order_item = OrderItem.new
-    @product_models = ProductModel.all
+    @product_models = @order.supplier.product_models
   end
 
   def create

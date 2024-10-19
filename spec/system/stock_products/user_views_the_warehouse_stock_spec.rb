@@ -38,8 +38,8 @@ describe 'User views the stock' do
     expect(page).to have_selector('table tbody tr td', text: 'PRO-B-456')
     expect(page).to have_selector('table tbody tr td', text: '30')
 
-    expect(page).not_to have_content('Product C')
-    expect(page).not_to have_content('PRO-C-789')
+    expect(page).not_to have_selector('table tbody tr td', text: 'Product C')
+    expect(page).not_to have_selector('table tbody tr td', text: 'PRO-C-789')
   end
 
   it 'and remove an item from inventory' do
@@ -61,8 +61,8 @@ describe 'User views the stock' do
     login_as(user)
     visit(root_path)
     click_on('Galeão')
-    select 'PRO-A-123', from: 'Stock Deduct'
-    fill_in 'Destination', with: 'Hilton'
+    select 'PRO-A-123', from: 'SKU'
+    fill_in 'Recipient', with: 'Hilton'
     fill_in 'Destination Address', with: 'Av Atlantica, 500 - Copacabana - Rio de Janeiro - RJ'
     click_on('Confirm Dispatch')
 

@@ -22,7 +22,7 @@ RSpec.describe StockProduct, type: :model do
       expect(stock_product.serial_number.length).to eq(20)
     end
 
-    it 'and the code must not be modified' do
+    it 'and the number must not be modified' do
       user = User.create!(name: 'User', email: 'user@email.com', password: '123456')
 
       warehouse = Warehouse.create!(name: 'CDD Guarulhos', code: 'GRU', city: 'Guarulhos', area: 13_000_000,

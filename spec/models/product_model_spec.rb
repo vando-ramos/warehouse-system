@@ -67,7 +67,7 @@ RSpec.describe ProductModel, type: :model do
       expect(product_model.valid?).to eq false
     end
 
-    it "sku can't be blank" do
+    it "SKU can't be blank" do
       # arrange
       supplier = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
                                   address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')

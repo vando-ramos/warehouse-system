@@ -25,3 +25,24 @@
   <div class='edit'><%= link_to 'Edit', edit_warehouse_path(@warehouse) %></div>
   <div class='delete'><%= button_to 'Delete', warehouse_path(@warehouse), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %></div>
 </div>
+
+<h2><%= StockProduct.model_name.human %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t('attributes.product_model.name') %></th>
+      <th><%= t('activerecord.attributes.product_model.sku') %></th>
+      <th><%= t('attributes.order_item.quantity') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stocks.each_pair do |key, value| %>
+      <tr>
+        <td><%= key.name %></td>
+        <td><%= key.sku %></td>
+        <td><%= value %></td>
+      </tr>
+    <% end %> 
+  </tbody>
+</table>

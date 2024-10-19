@@ -17,6 +17,7 @@ pt-BR:
         one: 'Pedido'
         other: 'Pedidos'
       order_item: 'Itens do Pedido'
+      stock_product: 'Produtos em Estoque'
     attributes:
       warehouse:
         name: 'Nome'

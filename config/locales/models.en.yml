@@ -17,7 +17,10 @@ en:
         one: 'Order'
         other: 'Orders'
       order_item: 'Order Items'
-    attributes:      
+      stock_product: 'Stock Products'
+    attributes:
+      product_model:
+        sku: 'SKU'
       order:        
         warehouse_id: 'Destination Warehouse'
         expected_delivery_date: 'Expected Delivery Date'

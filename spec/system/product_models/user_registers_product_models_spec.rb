@@ -23,7 +23,7 @@ describe 'User registers a product model' do
     fill_in 'Width', with: '30'
     fill_in 'Height', with: '5'
     fill_in 'Depth', with: '20'
-    fill_in 'Sku', with: 'INT-ATX-12345'
+    fill_in 'SKU', with: 'INT-ATX-12345'
     select 'TechInd', from: 'Supplier'
     click_on('Create Product Model')
 
@@ -55,7 +55,7 @@ describe 'User registers a product model' do
     fill_in 'Width', with: ''
     fill_in 'Height', with: ''
     fill_in 'Depth', with: ''
-    fill_in 'Sku', with: ''
+    fill_in 'SKU', with: ''
     select 'TechInd', from: 'Supplier'
     click_on('Create Product Model')
 
@@ -66,6 +66,6 @@ describe 'User registers a product model' do
     expect(page).to have_content("Width can't be blank")
     expect(page).to have_content("Height can't be blank")
     expect(page).to have_content("Depth can't be blank")
-    expect(page).to have_content("Sku can't be blank")
+    expect(page).to have_content("SKU can't be blank")
   end
 end

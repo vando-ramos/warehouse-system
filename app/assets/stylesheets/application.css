@@ -19,6 +19,10 @@ h1 {
   text-align: center;
 }
 
+.icon {
+  width: 27px;
+}
+
 a {
   text-decoration: none;
 }
@@ -52,6 +56,7 @@ h2 {
 
 .field-error {
   color: red;
+  font-size: 0.9rem;
 }
 
 .no-data {

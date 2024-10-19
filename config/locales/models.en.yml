@@ -19,6 +19,8 @@ en:
       order_item: 'Order Items'
       stock_product: 'Stock Products'
     attributes:
+      warehouse:
+        cep: 'CEP'
       product_model:
         sku: 'SKU'
       order:        

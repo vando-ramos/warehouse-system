@@ -41,4 +41,35 @@ describe 'User views the stock' do
     expect(page).not_to have_content('Product C')
     expect(page).not_to have_content('PRO-C-789')
   end
+
+  it 'and remove an item from inventory' do
+    user = User.create!(name: 'User', email: 'user@email.com', password: '123456')
+
+    warehouse = Warehouse.create!(name: 'Galeão', code: 'GIG', city: 'Rio de Janeiro', area: 18_000_000, address: 'Av. Jornalista Roberto Marinho, s/n',
+                                  cep: '21941-900' , description: 'Cargas internacionais')
+
+    supplier = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
+                                 address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
+
+    order = Order.create!(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: 1.week.from_now.to_date)
+
+    product = ProductModel.create!(name: 'Product A', weight: 50, width: 15, height: 5, depth: 10, sku: 'PRO-A-123', supplier: supplier)
+
+    20.times { StockProduct.create!(warehouse: warehouse, product_model: product, order: order) }
+
+
+    login_as(user)
+    visit(root_path)
+    click_on('Galeão')
+    select 'PRO-A-123', from: 'Stock Deduct'
+    fill_in 'Destination', with: 'Hilton'
+    fill_in 'Destination Address', with: 'Av Atlantica, 500 - Copacabana - Rio de Janeiro - RJ'
+    click_on('Confirm Dispatch')
+
+
+    expect(current_path).to eq(warehouse_path(warehouse.id))
+    expect(page).to have_content('Item successfully removed')
+    expect(page).to have_content('PRO-A-123')
+    expect(page).to have_content('19')
+  end
 end

@@ -16,9 +16,9 @@ class SuppliersController < ApplicationController
     @supplier = Supplier.new(supplier_params)
 
     if @supplier.save
-      redirect_to suppliers_path, notice: 'Supplier successfully registered!'
+      redirect_to suppliers_path, notice: t('notices.supplier.registered')
     else
-      flash.now.alert = 'Unable to register supplier!'
+      flash.now.alert = t('alerts.supplier.register_fail')
       render :new, status: :unprocessable_entity
     end
   end
@@ -28,16 +28,16 @@ class SuppliersController < ApplicationController
 
   def update
     if @supplier.update(supplier_params)
-      redirect_to @supplier, notice: 'Supplier successfully updated!'
+      redirect_to @supplier, notice: t('notices.supplier.updated')
     else
-      flash.now.alert = 'Unable to update supplier!'
+      flash.now.alert = t('alerts.supplier.update_fail')
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @supplier.destroy
-    redirect_to suppliers_path, notice: 'Supplier successfully deleted!'
+    redirect_to suppliers_path, notice: t('notices.supplier.deleted')
   end
 
   private

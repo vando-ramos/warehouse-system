@@ -42,6 +42,6 @@ describe 'User views the suppliers page' do
     click_on ('Suppliers')
 
     # Assert
-    expect(page).to have_content("There are no registered suppliers!")
+    expect(page).to have_content('There are no registered suppliers')
   end
 end

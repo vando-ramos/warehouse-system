@@ -7,10 +7,14 @@ class OrderItemsController < ApplicationController
   end
 
   def create
-    if @order.order_items.create(order_item_params)
-      redirect_to @order, notice: 'Item successfully added'
+    @order_item = @order.order_items.build(order_item_params)
+
+    if @order_item.save
+      redirect_to @order, notice: t('notices.order_item.added')
     else
-      flash.now.alert = 'Unable to add order item'
+      @product_models = @order.supplier.product_models
+      
+      flash.now.alert = t('alerts.order_item.add_fail')
       render :new, status: :unprocessable_entity
     end
   end

@@ -6,12 +6,12 @@
  <table>
     <thead>
       <tr>
-        <th>Code</th>
-        <th>Responsible User</th>
-        <th><%= t('views.warehouse_id') %></th>
-        <th><%= t('models.supplier') %></th>
-        <th><%= t('attributes.order.expected_delivery_date') %></th>
-        <th>Status</th>
+        <th><%= t('activerecord.attributes.order.code') %></th>
+        <th><%= t('views.responsible') %></th>
+        <th><%= t('activerecord.attributes.order.warehouse_id') %></th>
+        <th><%= Supplier.model_name.human(count: 1) %></th>
+        <th><%= t('activerecord.attributes.order.expected_delivery_date') %></th>
+        <th><%= t('activerecord.attributes.order.status') %></th>
       </tr>
     </thead>
     <tbody>

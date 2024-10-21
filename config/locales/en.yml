@@ -2,8 +2,48 @@ en:
   views:   
     warehouse_id: 'Destination Warehouse'
     add_item: 'Add Item'
+    stock_deduct: 'Stock Deduct'
+    search_order: 'Search Order'
+    search: 'Search'
+    are_you_sure: 'Are you sure?'
     found:
       one: "1 order found"
       other: "%{count} orders found"
+  actions:
+    confirm_dispatch: 'Confirm Dispatch'
+  notices:
+    warehouse:
+      registered: 'Warehouse successfully registered'
+      updated: 'Warehouse successfully updated'
+      deleted: 'Warehouse successfully deleted'
+    supplier:
+      registered: 'Supplier successfully registered'
+      updated: 'Supplier successfully updated'
+      deleted: 'Supplier successfully deleted'
+    product_model:
+      registered: 'Product model successfully registered'
+      updated: 'Product model successfully updated'
+      deleted: 'Product model successfully deleted'
+    order:
+      registered: 'Order successfully registered'
+      updated: 'Order successfully updated'
+      deleted: 'Order successfully deleted'
+    order_item:
+      added: 'Item successfully added'
+  alerts:
+    warehouse: 
+      register_fail: 'Unable to register warehouse'
+      update_fail: 'Unable to update warehouse'
+    supplier:
+      register_fail: 'Unable to register supplier'
+      update_fail: 'Unable to update supplier'
+    product_model:
+      register_fail: 'Unable to register product model'
+      update_fail: 'Unable to update product model'
+    order:
+      register_fail: 'Unable to register order'
+      update_fail: 'Unable to update order'
+    order_item:
+      add_fail: 'Unable to add item'
   
   

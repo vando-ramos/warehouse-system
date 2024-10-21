@@ -41,7 +41,7 @@ describe 'User registers a order' do
     click_on('Register Order')
     select 'Aeroporto SP - GRU', from: 'Destination Warehouse'
     select supplier.corporate_name, from: 'Supplier'
-    fill_in 'Expected Delivery Date', with: '2024-10-20'
+    fill_in 'Expected Delivery Date', with: 1.week.from_now.to_date
     click_on('Create Order')
 
     # assert
@@ -50,7 +50,7 @@ describe 'User registers a order' do
     expect(page).to have_content('User - user@email.com')
     expect(page).to have_content('Aeroporto SP - GRU')
     expect(page).to have_content('Tecnologia Industrial LTDA')
-    expect(page).to have_content('2024-10-20')
+    expect(page).to have_content(1.week.from_now.to_date)
     expect(page).to have_content('Pending')
     expect(page).not_to have_content('Galeão')
     expect(page).not_to have_content('Comercial Alimentos S.A.')

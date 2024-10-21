@@ -17,9 +17,9 @@ describe 'User edits a supplier' do
     # assert
     expect(current_path).to eq("/suppliers/#{supplier.id}/edit")
     expect(page).to have_content('Edit TechInd')
-    expect(page).to have_field('Corporate name', with: 'Tecnologia Industrial LTDA')
-    expect(page).to have_field('Brand name', with: 'TechInd')
-    expect(page).to have_field('Registration number', with: '98.765.432/0001-10')
+    expect(page).to have_field('Corporate Name', with: 'Tecnologia Industrial LTDA')
+    expect(page).to have_field('Brand Name', with: 'TechInd')
+    expect(page).to have_field('Registration Number', with: '98.765.432/0001-10')
     expect(page).to have_field('Address', with: 'Avenida das Nações, 456')
     expect(page).to have_field('City', with: 'Curitiba')
     expect(page).to have_field('State', with: 'PR')
@@ -36,9 +36,9 @@ describe 'User edits a supplier' do
     click_on('Suppliers')
     click_on('TechInd')
     click_on('Edit')
-    fill_in 'Corporate name', with: 'Comercial Alimentos S.A.'
-    fill_in 'Brand name', with: 'SuperFood'
-    fill_in 'Registration number', with: '12.345.678/0001-90'
+    fill_in 'Corporate Name', with: 'Comercial Alimentos S.A.'
+    fill_in 'Brand Name', with: 'SuperFood'
+    fill_in 'Registration Number', with: '12.345.678/0001-90'
     fill_in 'Address', with: 'Rua das Palmeiras, 123'
     fill_in 'City', with: 'São Paulo'
     fill_in 'State', with: 'SP'
@@ -47,7 +47,7 @@ describe 'User edits a supplier' do
 
     # assert
     expect(current_path).to eq(supplier_path(supplier.id))
-    expect(page).to have_content('Supplier successfully updated!')
+    expect(page).to have_content('Supplier successfully updated')
     expect(page).to have_content('Supplier SuperFood')
     expect(page).to have_content('Comercial Alimentos S.A.')
     expect(page).to have_content('12.345.678/0001-90')
@@ -71,10 +71,10 @@ describe 'User edits a supplier' do
     click_on('Update Supplier')
 
     # assert
-    expect(page).to have_content('Unable to update supplier!')
-    expect(page).to have_field('Corporate name', with: 'Tecnologia Industrial LTDA')
-    expect(page).to have_field('Brand name', with: 'TechInd')
-    expect(page).to have_field('Registration number', with: '98.765.432/0001-10')
+    expect(page).to have_content('Unable to update supplier')
+    expect(page).to have_field('Corporate Name', with: 'Tecnologia Industrial LTDA')
+    expect(page).to have_field('Brand Name', with: 'TechInd')
+    expect(page).to have_field('Registration Number', with: '98.765.432/0001-10')
     expect(page).to have_field('Email', with: 'vendas@techind.com')
   end
 end

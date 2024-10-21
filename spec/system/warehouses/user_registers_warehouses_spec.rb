@@ -38,7 +38,7 @@ describe 'User registers a warehouse' do
 
     # assert
     expect(current_path).to eq(root_path)
-    expect(page).to have_content('Warehouse successfully registered!')
+    expect(page).to have_content('Warehouse successfully registered')
     expect(page).to have_content('Aeroporto SP')
     expect(page).to have_content('GRU')
     expect(page).to have_content('Guarulhos')
@@ -56,7 +56,7 @@ describe 'User registers a warehouse' do
     click_on('Create Warehouse')
 
     # assert
-    expect(page).to have_content('Unable to register warehouse!')
+    expect(page).to have_content('Unable to register warehouse')
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Code can't be blank")
     expect(page).to have_content("City can't be blank")

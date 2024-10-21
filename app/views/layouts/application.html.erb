@@ -25,9 +25,9 @@
         <% if user_signed_in? %>
           <li>
             <%= form_with url: search_orders_path, method: :get do |f| %>
-              <%= f.label :query, 'Search Order' %>
-              <%= f.text_field :query, placeholder: 'Search Order' %>
-              <%= f.submit 'Search' %>
+              <%= f.label :query, t('views.search_order') %>
+              <%= f.text_field :query, placeholder: t('views.search_order') %>
+              <%= f.submit t('views.search') %>
             <% end %>
           </li>
 
@@ -39,7 +39,10 @@
           <div class='user'>
             <li><%= link_to t('devise.sessions.sign_in'), new_user_session_path %></li>
           </div>
-        <% end %>                 
+        <% end %>
+
+        <li><%= link_to t('views.english'), url_for(locale: 'en') %></li>
+        <li><%= link_to t('views.portuguese'), url_for(locale: 'pt-BR') %></li>
       </ul>
     </nav>    
     

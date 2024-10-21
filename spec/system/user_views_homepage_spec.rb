@@ -23,7 +23,7 @@ describe 'User visits homepage' do
     visit(root_path)
 
     # assert
-    expect(page).not_to have_content('There are no registered warehouses!')
+    expect(page).not_to have_content('There are no registered warehouses')
     expect(page).to have_content('Aeroporto SP')
     expect(page).to have_content('GRU')
     expect(page).to have_content('Guarulhos')
@@ -42,6 +42,6 @@ describe 'User visits homepage' do
     visit(root_path)
 
     # assert
-    expect(page).to have_content('There are no registered warehouses!')
+    expect(page).to have_content('There are no registered warehouses')
   end
 end

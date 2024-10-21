@@ -43,7 +43,7 @@ describe 'User edits a warehouse' do
 
     # assert
     expect(current_path).to eq(warehouse_path(warehouse.id))
-    expect(page).to have_content('Warehouse successfully updated!')
+    expect(page).to have_content('Warehouse successfully updated')
     expect(page).to have_content('Viracopos')
     expect(page).to have_content('VCP')
     expect(page).to have_content('Campinas')
@@ -67,7 +67,7 @@ describe 'User edits a warehouse' do
     click_on('Update Warehouse')
 
     # assert
-    expect(page).to have_content('Unable to update warehouse!')
+    expect(page).to have_content('Unable to update warehouse')
     expect(page).to have_field('Name', with: 'Aeroporto SP')
     expect(page).to have_field('City', with: 'Guarulhos')
     expect(page).to have_field('Address', with: 'Rodovia Hélio Smidt, s/n - Cumbica')

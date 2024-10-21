@@ -20,6 +20,6 @@
 </table>
 
 <div class='action-button'>
-  <div class='edit'><%= link_to 'Edit', edit_supplier_path(@supplier) %></div>
-  <div class='delete'><%= button_to 'Delete', supplier_path(@supplier), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %></div>
+  <div class='edit'><%= link_to t('actions.edit'), edit_supplier_path(@supplier) %></div>
+  <div class='delete'><%= button_to t('actions.delete'), supplier_path(@supplier), method: :delete, form: { data: { turbo_confirm: t('views.are_you_sure') } } %></div>
 </div>

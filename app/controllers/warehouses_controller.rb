@@ -14,9 +14,9 @@ class WarehousesController < ApplicationController
     @warehouse = Warehouse.new(warehouse_params)
 
     if @warehouse.save
-      redirect_to root_path, notice: 'Warehouse successfully registered!'
+      redirect_to root_path, notice: t('notices.warehouse.registered')
     else
-      flash.now.alert = 'Unable to register warehouse!'
+      flash.now.alert = t('alerts.warehouse.register_fail')
       render :new, status: :unprocessable_entity
     end
   end
@@ -26,16 +26,16 @@ class WarehousesController < ApplicationController
 
   def update
     if @warehouse.update(warehouse_params)
-      redirect_to @warehouse, notice: 'Warehouse successfully updated!'
+      redirect_to @warehouse, notice: t('notices.warehouse.updated')
     else
-      flash.now.alert = 'Unable to update warehouse!'
+      flash.now.alert = t('alerts.warehouse.update_fail')
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @warehouse.destroy
-    redirect_to root_path, notice: 'Warehouse successfully deleted!'
+    redirect_to root_path, notice: t('notices.warehouse.deleted')
   end
 
   private

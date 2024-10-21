@@ -18,10 +18,10 @@ class ProductModelsController < ApplicationController
     @product_model = ProductModel.new(product_model_params)
 
     if @product_model.save
-      redirect_to @product_model, notice: 'Product model successfully registered!'
+      redirect_to @product_model, notice: t('notices.product_model.registered')
     else
       @suppliers = Supplier.all
-      flash.now.alert = 'Unable to register product model!'
+      flash.now.alert = t('alerts.product_model.register_fail')
       render :new, status: :unprocessable_entity
     end
   end

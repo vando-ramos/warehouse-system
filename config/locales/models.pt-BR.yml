@@ -18,6 +18,7 @@ pt-BR:
         other: 'Pedidos'
       order_item: 'Itens do Pedido'
       stock_product: 'Produtos em Estoque'
+      stock_product_destination: 'Destino dos Produtos em Estoque'
     attributes:
       warehouse:
         name: 'Nome'
@@ -33,7 +34,7 @@ pt-BR:
         registration_number: 'CNPJ'
         address: 'Endereço'
         city: 'Cidade'
-        state: 'Estdo'
+        state: 'Estado'
         email: 'Email'
       product_model:
         name: 'Nome'
@@ -42,6 +43,7 @@ pt-BR:
         height: 'Altura'
         depth: 'Profundidade'
         sku: 'SKU'
+        supplier_id: 'Fornecedor'
       user:
         name: 'Nome'
         password: 'Senha'
@@ -49,7 +51,12 @@ pt-BR:
       order:
         warehouse_id: 'Galpão de Destino'
         supplier_id: 'Fornecedor'
+        code: 'Código'
         expected_delivery_date: 'Data Prevista de Entrega'
+        status: 'Situação'
       order_item:
         quantity: 'Quantidade'
         product_model_id: 'Modelo de Produto'
+      stock_product_destination:
+        address: 'Endereço de Destino'
+        recipient: 'Destinatário'

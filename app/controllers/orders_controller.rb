@@ -20,11 +20,11 @@ class OrdersController < ApplicationController
     @order.user = current_user
 
     if @order.save
-      redirect_to @order, notice: 'Order successfully registered'
+      redirect_to @order, notice: t('notices.order.registered')
     else
       @warehouses = Warehouse.all
       @suppliers = Supplier.all
-      flash.now.alert = 'Unable to register order'
+      flash.now.alert = t('alerts.order.register_fail')
       render :new, status: :unprocessable_entity
     end
   end
@@ -36,9 +36,11 @@ class OrdersController < ApplicationController
 
   def update
     if @order.update(orders_params)
-      redirect_to @order, notice: 'Order successfully updated'
+      redirect_to @order, notice: t('notices.order.updated')
     else
-      flash.now.alert = 'Unable to update order'
+      @warehouses = Warehouse.all
+      @suppliers = Supplier.all
+      flash.now.alert = t('alerts.order.update_fail')
       render :edit, status: :unprocessable_entity
     end
   end
@@ -56,7 +58,7 @@ class OrdersController < ApplicationController
         StockProduct.create!(order: @order, product_model: item.product_model, warehouse: @order.warehouse)
       end
     end
-    
+
     redirect_to @order
   end
 

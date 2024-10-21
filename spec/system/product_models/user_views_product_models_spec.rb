@@ -50,7 +50,7 @@ describe 'User views the product models page' do
     expect(page).to have_content('Placa Mãe Intel ATX')
     expect(page).to have_content('INT-ATX-12345')
     expect(page).to have_content('TechInd')
-    
+
     expect(page).to have_content('Memória RAM 16GB DDR4')
     expect(page).to have_content('RAM-DDR4-67890')
     expect(page).to have_content('TechInd')
@@ -66,6 +66,6 @@ describe 'User views the product models page' do
     click_on ('Product Models')
 
     # Assert
-    expect(page).to have_content("There are no registered product models!")
+    expect(page).to have_content("There are no registered product models")
   end
 end

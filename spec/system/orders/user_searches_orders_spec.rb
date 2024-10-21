@@ -39,7 +39,7 @@ describe 'User searches for orders' do
     supplier = Supplier.create!(corporate_name: 'Tecnologia Industrial LTDA', brand_name: 'TechInd', registration_number: '98.765.432/0001-10',
                                 address: 'Avenida das Nações, 456', city: 'Curitiba', state: 'PR', email: 'vendas@techind.com')
 
-    order = Order.create!(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: 1.day.from_now)
+    order = Order.create!(user: user, warehouse: warehouse, supplier: supplier, expected_delivery_date: 1.day.from_now.to_date)
 
     # act
     login_as(user)
@@ -56,7 +56,7 @@ describe 'User searches for orders' do
     expect(page).to have_content('User - user@email.com')
     expect(page).to have_content('Aeroporto SP - GRU')
     expect(page).to have_content('Tecnologia Industrial LTDA')
-    # expect(page).to have_content("#{1.day.from_now}")
+    expect(page).to have_content("#{1.day.from_now.to_date}")
   end
 
   it 'and find multiple orders' do

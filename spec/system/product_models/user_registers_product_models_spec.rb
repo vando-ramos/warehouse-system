@@ -29,7 +29,7 @@ describe 'User registers a product model' do
 
     # assert
     expect(current_path).to eq('/product_models/1')
-    expect(page).to have_content('Product model successfully registered!')
+    expect(page).to have_content('Product model successfully registered')
     expect(page).to have_content('Placa Mãe Intel ATX')
     expect(page).to have_content('500g')
     expect(page).to have_content('30cm x 5cm x 20cm')
@@ -60,7 +60,7 @@ describe 'User registers a product model' do
     click_on('Create Product Model')
 
     # assert
-    expect(page).to have_content('Unable to register product model!')
+    expect(page).to have_content('Unable to register product model')
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Weight can't be blank")
     expect(page).to have_content("Width can't be blank")

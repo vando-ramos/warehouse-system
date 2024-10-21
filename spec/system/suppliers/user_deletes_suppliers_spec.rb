@@ -16,7 +16,7 @@ describe 'User deletes a supplier' do
 
     # assert
     expect(current_path).to eq(suppliers_path)
-    expect(page).to have_content('Supplier successfully deleted!')
+    expect(page).to have_content('Supplier successfully deleted')
     expect(page).not_to have_content('TechInd')
     expect(page).not_to have_content('Curitiba - PR')
   end
@@ -36,7 +36,7 @@ describe 'User deletes a supplier' do
     click_on('Delete')
 
     # assert
-    expect(page).to have_content('Supplier successfully deleted!')
+    expect(page).to have_content('Supplier successfully deleted')
     expect(page).not_to have_content('SuperFood')
     expect(page).to have_content('TechInd')
   end

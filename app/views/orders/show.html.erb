@@ -3,11 +3,11 @@
 <table>
   <thead>
     <tr>
-      <th>Responsible User</th>
-      <th><%= t('views.warehouse_id') %></th>
-      <th><%= t('models.supplier') %></th>
-      <th><%= t('attributes.order.expected_delivery_date') %></th>
-      <th>Status</th>
+      <th><%= t('views.responsible') %></th>
+      <th><%= t('activerecord.attributes.order.warehouse_id') %></th>
+      <th><%= Supplier.model_name.human(count: 1) %></th>
+      <th><%= t('activerecord.attributes.order.expected_delivery_date') %></th>
+      <th><%= t('activerecord.attributes.order.status') %></th>
     </tr>
   </thead>
   <tbody>
@@ -22,11 +22,11 @@
 </table>
 
 <div class='action-button'>
-  <div class='edit'><%= link_to 'Edit', edit_order_path(@order) %></div>
+  <div class='edit'><%= link_to t('actions.edit'), edit_order_path(@order) %></div>
 
   <% if @order.pending? %>
-    <div class='delivered'><%= button_to 'Delivered', delivered_order_path(@order) %></div>
-    <div class='canceled'><%= button_to 'Canceled', canceled_order_path(@order) %></div>
+    <div class='delivered'><%= button_to t('actions.delivered'), delivered_order_path(@order) %></div>
+    <div class='canceled'><%= button_to t('actions.canceled'), canceled_order_path(@order) %></div>
   <% end %>
 </div>
 
@@ -37,7 +37,7 @@
     <tr>
       <th><%= ProductModel.model_name.human %></th>
       <th><%= Order.model_name.human %></th>
-      <th><%= t('attributes.order_item.quantity') %></th>
+      <th><%= t('activerecord.attributes.order_item.quantity') %></th>
     </tr>
   </thead>
   <tbody>
@@ -52,5 +52,5 @@
 </table>
 
 <div class='action-button'>
-  <div class='add-item'><%= link_to 'Add Item', new_order_order_item_path(order_id: @order.id) %></div>
+  <div class='add-item'><%= link_to t('actions.add_item'), new_order_order_item_path(order_id: @order.id) %></div>
 </div>

@@ -13,7 +13,7 @@ describe 'User deletes a warehouse' do
 
     # assert
     expect(current_path).to eq(root_path)
-    expect(page).to have_content('Warehouse successfully deleted!')
+    expect(page).to have_content('Warehouse successfully deleted')
     expect(page).not_to have_content('Aeroporto SP')
     expect(page).not_to have_content('Code: GRU')
     expect(page).not_to have_content('City: Guarulhos')
@@ -34,7 +34,7 @@ describe 'User deletes a warehouse' do
     click_on('Delete')
 
     # assert
-    expect(page).to have_content('Warehouse successfully deleted!')
+    expect(page).to have_content('Warehouse successfully deleted')
     expect(page).not_to have_content('Aeroporto SP')
     expect(page).to have_content('Galeão')
   end

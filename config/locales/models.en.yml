@@ -21,6 +21,10 @@ en:
     attributes:
       warehouse:
         cep: 'CEP'
+      supplier:
+        corporate_name: 'Corporate Name'
+        brand_name: 'Brand Name'
+        registration_number: 'Registration Number'
       product_model:
         sku: 'SKU'
       order:        
@@ -28,3 +32,5 @@ en:
         expected_delivery_date: 'Expected Delivery Date'
       order_item:
         product_model_id: 'Product Model'
+      stock_product_destination:
+        address: 'Destination Address'

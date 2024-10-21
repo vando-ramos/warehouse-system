@@ -55,5 +55,67 @@ describe 'Warehouse API', type: :request do
       json_response = JSON.parse(response.body)
       expect(json_response).to eq []
     end
+
+    it 'and raise an internal error' do
+      allow(Warehouse).to receive(:all).and_raise(ActiveRecord::QueryCanceled)
+
+
+      get '/api/v1/warehouses'
+
+
+      expect(response).to have_http_status(500)
+    end
+  end
+
+  context 'POST /api/v1/warehouses' do
+    it 'success' do
+      warehouse_params = { warehouse: {  name: 'Galeão', code: 'GIG', city: 'Rio de Janeiro', area: 18_000_000,
+                                         address: 'Av. Jornalista Roberto Marinho, s/n', cep: '21941-900' , description: 'Cargas internacionais' } }
+
+
+      post '/api/v1/warehouses', params: warehouse_params
+
+
+      expect(response).to have_http_status(201)
+      expect(response.content_type).to include('application/json')
+      json_response = JSON.parse(response.body)
+      expect(json_response['name']).to eq('Galeão')
+      expect(json_response['code']).to eq('GIG')
+      expect(json_response['city']).to eq('Rio de Janeiro')
+      expect(json_response['area']).to eq(18000000)
+      expect(json_response['address']).to eq('Av. Jornalista Roberto Marinho, s/n')
+      expect(json_response['cep']).to eq('21941-900')
+      expect(json_response['description']).to eq('Cargas internacionais')
+    end
+
+    it 'fail if parameters are not complete' do
+      warehouse_params = { warehouse: {  name: 'Galeão', code: 'GIG' } }
+
+
+      post '/api/v1/warehouses', params: warehouse_params
+
+
+      expect(response).to have_http_status(412)
+      expect(response.body).not_to include("Name can't be blank")
+      expect(response.body).not_to include("Code can't be blank")
+      expect(response.body).to include("City can't be blank")
+      expect(response.body).to include("Area can't be blank")
+      expect(response.body).to include("Address can't be blank")
+      expect(response.body).to include("CEP can't be blank")
+      expect(response.body).to include("Description can't be blank")
+    end
+
+    it 'fail if there is an internal error' do
+      allow(Warehouse).to receive(:new).and_raise(ActiveRecord::ActiveRecordError)
+
+      warehouse_params = { warehouse: {  name: 'Galeão', code: 'GIG', city: 'Rio de Janeiro', area: 18_000_000,
+                                         address: 'Av. Jornalista Roberto Marinho, s/n', cep: '21941-900' , description: 'Cargas internacionais' } }
+
+
+      post '/api/v1/warehouses', params: warehouse_params
+
+
+      expect(response).to have_http_status(500)
+    end
   end
 end

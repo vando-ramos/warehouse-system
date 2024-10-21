@@ -22,8 +22,8 @@
 </table>
 
 <div class='action-button'>
-  <div class='edit'><%= link_to 'Edit', edit_warehouse_path(@warehouse) %></div>
-  <div class='delete'><%= button_to 'Delete', warehouse_path(@warehouse), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %></div>
+  <div class='edit'><%= link_to t('actions.edit'), edit_warehouse_path(@warehouse) %></div>
+  <div class='delete'><%= button_to t('actions.delete'), warehouse_path(@warehouse), method: :delete, form: { data: { turbo_confirm: t('views.are_you_sure') } } %></div>
 </div>
 
 <h2><%= StockProduct.model_name.human %></h2>
@@ -31,9 +31,9 @@
 <table>
   <thead>
     <tr>
-      <th><%= t('attributes.product_model.name') %></th>
+      <th><%= t('activerecord.attributes.product_model.name') %></th>
       <th><%= t('activerecord.attributes.product_model.sku') %></th>
-      <th><%= t('attributes.order_item.quantity') %></th>
+      <th><%= t('activerecord.attributes.order_item.quantity') %></th>
     </tr>
   </thead>
   <tbody>
@@ -47,7 +47,7 @@
   </tbody>
 </table>
 
-<h2>Stock Deduct</h2>
+<h2><%= t('views.stock_deduct') %></h2>
 
 <div class='form-container'>
   <%= form_with url: warehouse_stock_product_destinations_path(@warehouse.id) do |f| %>
@@ -56,15 +56,15 @@
       <%= f.collection_select :product_model_id, @product_models, :id, :sku %>
     </div>    
     <div>
-      <%= f.label :recipient %>
+      <%= f.label :recipient, t('activerecord.attributes.stock_product_destination.recipient') %>
       <%= f.text_field :recipient %>
     </div>
     <div>
-      <%= f.label :address, 'Destination Address' %>
+      <%= f.label :address, t('activerecord.attributes.stock_product_destination.address') %>
       <%= f.text_field :address %>
     </div>
     <div>
-      <%= f.submit 'Confirm Dispatch' %>
+      <%= f.submit t('actions.confirm_dispatch') %>
     </div>
   <% end %>
 </div>
